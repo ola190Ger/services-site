@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Data
 public class Location {
     private String id;
-    private String county;
+    private String country;
     private String region;
     private String city;
     private String description;
@@ -23,16 +23,16 @@ public class Location {
     public Location() {
     }
 
-    public Location(String county, String region, String city, String description) {
-        this.county = county;
+    public Location(String country, String region, String city, String description) {
+        this.country = country;
         this.region = region;
         this.city = city;
         this.description = description;
     }
 
-    public Location(String id, String county, String region, String city, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Location(String id, String country, String region, String city, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
-        this.county = county;
+        this.country = country;
         this.region = region;
         this.city = city;
         this.description = description;
@@ -48,12 +48,12 @@ public class Location {
         this.id = id;
     }
 
-    public String getCounty() {
-        return county;
+    public String getCountry() {
+        return country;
     }
 
-    public void setCounty(String county) {
-        this.county = county;
+    public void r(String country) {
+        this.country = country;
     }
 
     public String getRegion() {
@@ -100,7 +100,7 @@ public class Location {
     public String toString() {
         return "Location{" +
                 "id='" + id + '\'' +
-                ", county='" + county + '\'' +
+                ", country='" + country + '\'' +
                 ", region='" + region + '\'' +
                 ", city='" + city + '\'' +
                 ", description='" + description + '\'' +

@@ -7,11 +7,13 @@ package com.art.tbl.fakedata;
 */
 
 import com.art.tbl.model.Category;
+import com.art.tbl.model.Location;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Component
@@ -31,5 +33,21 @@ public class Data {
 
     public void setCategories(List<Category> categories) {
         this.categories = categories;
+    }
+
+    private List<Location> locations = new ArrayList<>(
+            Arrays.asList(
+            new Location("1", "country", "region", "city","description", LocalDateTime.now(), LocalDateTime.now()),
+            new Location("2", "country2", "region2", "city2","description2", LocalDateTime.now(), LocalDateTime.now()),
+            new Location("3", "country3", "region3", "city3","description3", LocalDateTime.now(), LocalDateTime.now())
+    )
+    );
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
     }
 }

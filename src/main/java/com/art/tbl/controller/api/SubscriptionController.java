@@ -20,6 +20,6 @@ public class SubscriptionController {
     @RequestMapping("/getone")
     public Subscription getone()
     {
-        return new Subscription("1", new Contractor(), LocalDate.now(), LocalDate.now(), LocalDateTime.now(), LocalDateTime.now());
+        return new Subscription("1", new Contractor(), LocalDate.now(), LocalDate.now(), "description", LocalDateTime.now(), LocalDateTime.now());
     }
 }

@@ -18,6 +18,6 @@ public class ProvidedServiceController {
     @RequestMapping("/getone")
     public ProvidedService getone()
     {
-        return new ProvidedService("1", "name", LocalDateTime.now(), LocalDateTime.now());
+        return new ProvidedService("1", "name", "description", LocalDateTime.now(), LocalDateTime.now());
     }
 }

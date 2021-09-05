@@ -18,6 +18,6 @@ public class TypeContractorController {
     @RequestMapping("/getone")
     public TypeContractor getone()
     {
-        return new TypeContractor("1", "name", LocalDateTime.now(), LocalDateTime.now());
+        return new TypeContractor("1", "name", "description", LocalDateTime.now(), LocalDateTime.now());
     }
 }

@@ -18,6 +18,6 @@ public class ReviewsController {
     @RequestMapping("/getone")
     public Reviews getone()
     {
-        return new Reviews("1", "text", LocalDateTime.now(), LocalDateTime.now());
+        return new Reviews("1", "text", "description", LocalDateTime.now(), LocalDateTime.now());
     }
 }

@@ -19,6 +19,6 @@ public class SocialNetworkController {
     @RequestMapping("/getone")
     public SocialNetwork getone()
     {
-        return new SocialNetwork("1", "name", "url", LocalDateTime.now(), LocalDateTime.now());
+        return new SocialNetwork("1", "name", "url", "description", LocalDateTime.now(), LocalDateTime.now());
     }
 }
