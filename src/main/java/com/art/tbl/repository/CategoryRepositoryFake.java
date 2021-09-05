@@ -30,11 +30,15 @@ public class CategoryRepositoryFake {
     }
 
     public Category update(Category category) {
-        return null;
+         Category cat = get(category.getId());
+         data.getCategories().set(data.getCategories().indexOf(cat), category);
+         return category;
     }
 
     public Category delete(String id) {
-        return null;
+        Category category = get(id);
+        data.getCategories().remove(get(id));
+        return category;
     }
 
     public List<Category> getAll() {
