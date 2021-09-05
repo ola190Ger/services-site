@@ -37,4 +37,21 @@ public class CategoryController {
         return new Category("1", "category","desc", LocalDateTime.now(), LocalDateTime.now());
     }
 
+    @PostMapping("/create")
+    public Category create(@RequestBody Category category)
+    {
+        return service.create(category);
+    }
+
+    @PostMapping("update")
+    public Category update(@RequestBody Category category)
+    {
+        return  service.update(category);
+    }
+
+    @RequestMapping("/delete/{id}")
+    public Category delete(@PathVariable("id") String id)
+    {
+        return service.delete(id);
+    }
 }
