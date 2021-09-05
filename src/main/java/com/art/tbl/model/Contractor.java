@@ -76,4 +76,170 @@ public class Contractor {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public List<Category> getCategory() {
+        return category;
+    }
+
+    public void setCategory(List<Category> category) {
+        this.category = category;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public TypeContractor getTypeContractor() {
+        return typeContractor;
+    }
+
+    public void setTypeContractor(TypeContractor typeContractor) {
+        this.typeContractor = typeContractor;
+    }
+
+    public List<ProvidedService> getProvidedServices() {
+        return providedServices;
+    }
+
+    public void setProvidedServices(List<ProvidedService> providedServices) {
+        this.providedServices = providedServices;
+    }
+
+    public List<SocialNetwork> getSocialNetworks() {
+        return socialNetworks;
+    }
+
+    public void setSocialNetworks(List<SocialNetwork> socialNetworks) {
+        this.socialNetworks = socialNetworks;
+    }
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
+
+    public List<Reviews> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Reviews> reviews) {
+        this.reviews = reviews;
+    }
+
+    public LocalDate getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(LocalDate createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Contractor)) return false;
+
+        Contractor that = (Contractor) o;
+
+        return getId().equals(that.getId());
+    }
+
+    @Override
+    public int hashCode() {
+        return getId().hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Contractor{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", birthday=" + birthday +
+                ", description='" + description + '\'' +
+                ", category=" + category +
+                ", location=" + location +
+                ", typeContractor=" + typeContractor +
+                ", providedServices=" + providedServices +
+                ", socialNetworks=" + socialNetworks +
+                ", images=" + images +
+                ", reviews=" + reviews +
+                ", createdDate=" + createdDate +
+                ", user=" + user +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }
+
