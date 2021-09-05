@@ -21,7 +21,7 @@ public class ImageController {
     @RequestMapping("/getone")
     public Image getone()
     {
-        return new Image("1", "image", new java.awt.Image() {
+        return new Image("1", "image","description", new java.awt.Image() {
             @Override
             public int getWidth(ImageObserver observer) {
                 return 0;

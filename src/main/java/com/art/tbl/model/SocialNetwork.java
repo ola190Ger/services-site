@@ -18,7 +18,7 @@ public class SocialNetwork {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public SocialNetwork() {
+    public SocialNetwork(String id, String name, String url, String description, LocalDateTime now, LocalDateTime localDateTime) {
     }
 
     public SocialNetwork(String name, String url, String description) {
