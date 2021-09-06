@@ -18,13 +18,22 @@ public class SocialNetwork {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public SocialNetwork(String id, String name, String url, String description, LocalDateTime now, LocalDateTime localDateTime) {
+    public SocialNetwork() {
     }
 
     public SocialNetwork(String name, String url, String description) {
         this.name = name;
         this.url = url;
         this.description = description;
+    }
+
+    public SocialNetwork(String id, String name, String url, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.id = id;
+        this.name = name;
+        this.url = url;
+        this.description = description;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
     public String getId() {
