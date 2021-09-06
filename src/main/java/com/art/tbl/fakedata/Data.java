@@ -8,6 +8,7 @@ package com.art.tbl.fakedata;
 
 import com.art.tbl.model.Category;
 import com.art.tbl.model.Location;
+import com.art.tbl.model.SocialNetwork;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -49,5 +50,21 @@ public class Data {
 
     public void setLocations(List<Location> locations) {
         this.locations = locations;
+    }
+
+    private List<SocialNetwork> socialNetworks = new ArrayList<>(
+            Arrays.asList(
+                    new SocialNetwork("1", "name", "url", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new SocialNetwork("2", "name2", "url2", "description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new SocialNetwork("3", "name3", "url3", "description3", LocalDateTime.now(), LocalDateTime.now())
+            )
+    );
+
+    public List<SocialNetwork> getSocialNetworks() {
+        return socialNetworks;
+    }
+
+    public void setSocialNetworks(List<SocialNetwork> socialNetworks) {
+        this.socialNetworks = socialNetworks;
     }
 }
