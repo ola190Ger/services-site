@@ -85,7 +85,8 @@ public class Data {
 
     public void setUsers(List<User> users){
         this.users = users;
-
+    }
+    
     private  List<TypeContractor> typeContractors = new ArrayList<>(
             Arrays.asList(
                     new TypeContractor("1", "type1", "description1", LocalDateTime.now(), LocalDateTime.now()),
