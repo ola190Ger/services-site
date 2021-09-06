@@ -12,7 +12,7 @@ import java.util.List;
 public interface IUserService {
     User create(User user);
     User get(String id);
-    User update(User category);
+    User update(User user);
     User delete(String id);
     List<User> getAll();
 }
