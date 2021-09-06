@@ -6,11 +6,7 @@ package com.art.tbl.fakedata;
 @time 18:51 
 */
 
-import com.art.tbl.model.Category;
-import com.art.tbl.model.Location;
-import com.art.tbl.model.SocialNetwork;
-import com.art.tbl.model.User;
-import com.art.tbl.model.TypeContractor;
+import com.art.tbl.model.*;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -68,6 +64,7 @@ public class Data {
 
     public void setSocialNetworks(List<SocialNetwork> socialNetworks) {
         this.socialNetworks = socialNetworks;
+    }
 
     private List<User> users = new ArrayList<>(
             Arrays.asList(
@@ -82,8 +79,9 @@ public class Data {
         return users;
     }
 
-    public void setUsers(List<User> users){
+    public void setUsers(List<User> users) {
         this.users = users;
+    }
 
     private  List<TypeContractor> typeContractors = new ArrayList<>(
             Arrays.asList(
@@ -99,5 +97,21 @@ public class Data {
 
     public void setTypeContractors(List<TypeContractor> typeContractors) {
         this.typeContractors = typeContractors;
+    }
+
+    private  List<Reviews> reviews = new ArrayList<>(
+            Arrays.asList(
+                    new Reviews("1","text", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Reviews("2","text2", "description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new Reviews("3","text3", "description3", LocalDateTime.now(), LocalDateTime.now())
+            )
+    );
+
+    public List<Reviews> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Reviews> reviews) {
+        this.reviews = reviews;
     }
 }
