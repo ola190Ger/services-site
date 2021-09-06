@@ -68,7 +68,8 @@ public class Data {
 
     public void setSocialNetworks(List<SocialNetwork> socialNetworks) {
         this.socialNetworks = socialNetworks;
-
+    }
+    
     private List<User> users = new ArrayList<>(
             Arrays.asList(
                     new User("1", "name", "surname", "email", "password", "description", LocalDateTime.now(), LocalDateTime.now()),
