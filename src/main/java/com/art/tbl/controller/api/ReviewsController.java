@@ -7,17 +7,45 @@ package com.art.tbl.controller.api;
 */
 
 import com.art.tbl.model.Reviews;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.art.tbl.service.reviews.impls.ReviewsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/reviews")
 public class ReviewsController {
-    @RequestMapping("/getone")
-    public Reviews getone()
+    @Autowired
+    ReviewsServiceImpl service;
+
+    @RequestMapping("/getall")
+    public List<Reviews> getAll() {
+        return service.getAll();
+    }
+
+    @RequestMapping("/get/{id}")
+    public Reviews get(@PathVariable("id") String id)
     {
-        return new Reviews("1", "text", "description", LocalDateTime.now(), LocalDateTime.now());
+        return service.get(id);
+    }
+
+    @PostMapping("/create")
+    public Reviews create(@RequestBody Reviews reviews)
+    {
+        return service.create(reviews);
+    }
+
+    @PostMapping("update")
+    public Reviews update(@RequestBody Reviews reviews)
+    {
+        return  service.update(reviews);
+    }
+
+    @RequestMapping("/delete/{id}")
+    public Reviews delete(@PathVariable("id") String id)
+    {
+        return service.delete(id);
     }
 }

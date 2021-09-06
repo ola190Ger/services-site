@@ -50,6 +50,22 @@ public class Data {
         this.locations = locations;
     }
 
+    private List<SocialNetwork> socialNetworks = new ArrayList<>(
+            Arrays.asList(
+                    new SocialNetwork("1", "name", "url", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new SocialNetwork("2", "name2", "url2", "description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new SocialNetwork("3", "name3", "url3", "description3", LocalDateTime.now(), LocalDateTime.now())
+            )
+    );
+
+    public List<SocialNetwork> getSocialNetworks() {
+        return socialNetworks;
+    }
+
+    public void setSocialNetworks(List<SocialNetwork> socialNetworks) {
+        this.socialNetworks = socialNetworks;
+    }
+
     private List<User> users = new ArrayList<>(
             Arrays.asList(
                     new User("1", "name", "surname", "email", "password", "description", LocalDateTime.now(), LocalDateTime.now()),
@@ -63,7 +79,7 @@ public class Data {
         return users;
     }
 
-    public void setUsers(List<User> users){
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 
@@ -99,4 +115,19 @@ public class Data {
         this.providedServices = providedServices;
     }
 
+    private  List<Reviews> reviews = new ArrayList<>(
+            Arrays.asList(
+                    new Reviews("1","text", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Reviews("2","text2", "description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new Reviews("3","text3", "description3", LocalDateTime.now(), LocalDateTime.now())
+            )
+    );
+
+    public List<Reviews> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Reviews> reviews) {
+        this.reviews = reviews;
+    }
 }
