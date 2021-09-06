@@ -11,7 +11,9 @@ import com.art.tbl.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 @Repository
 public class CategoryRepositoryFake {
@@ -20,6 +22,10 @@ public class CategoryRepositoryFake {
     Data data;
 
      public Category create(Category category) {
+         UUID id = UUID.randomUUID();
+         category.setId(id.toString());
+         category.setCreatedAt(LocalDateTime.now());
+         category.setUpdatedAt(LocalDateTime.now());
          data.getCategories().add(category);
          return category;
     }
@@ -31,6 +37,8 @@ public class CategoryRepositoryFake {
 
     public Category update(Category category) {
          Category cat = get(category.getId());
+         category.setCreatedAt(cat.getCreatedAt());
+         category.setUpdatedAt(LocalDateTime.now());
          data.getCategories().set(data.getCategories().indexOf(cat), category);
          return category;
     }

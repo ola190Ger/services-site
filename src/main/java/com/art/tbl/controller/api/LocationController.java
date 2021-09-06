@@ -49,9 +49,4 @@ public class LocationController {
         return service.delete(id);
     }
 
-    @RequestMapping("/getone")
-    public Location getone()
-    {
-        return new Location("1", "country", "region", "city","description", LocalDateTime.now(), LocalDateTime.now());
-    }
 }
