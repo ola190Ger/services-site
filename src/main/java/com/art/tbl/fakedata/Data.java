@@ -8,6 +8,7 @@ package com.art.tbl.fakedata;
 
 import com.art.tbl.model.Category;
 import com.art.tbl.model.Location;
+import com.art.tbl.model.User;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -49,5 +50,22 @@ public class Data {
 
     public void setLocations(List<Location> locations) {
         this.locations = locations;
+    }
+
+    private List<User> users = new ArrayList<>(
+            Arrays.asList(
+                    new User("1", "name", "surname", "email", "password", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new User("2", "name2", "surname", "email", "password", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new User("3", "name3", "surname", "email", "password", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new User("4", "name4", "surname", "email", "password", "description", LocalDateTime.now(), LocalDateTime.now())
+            )
+    );
+
+    public List<User> getUsers(){
+        return users;
+    }
+
+    public void setUsers(List<User> users){
+        this.users = users;
     }
 }
