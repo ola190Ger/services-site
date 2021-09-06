@@ -6,10 +6,7 @@ package com.art.tbl.fakedata;
 @time 18:51 
 */
 
-import com.art.tbl.model.Category;
-import com.art.tbl.model.Location;
-import com.art.tbl.model.User;
-import com.art.tbl.model.TypeContractor;
+import com.art.tbl.model.*;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -68,6 +65,7 @@ public class Data {
 
     public void setUsers(List<User> users){
         this.users = users;
+    }
 
     private  List<TypeContractor> typeContractors = new ArrayList<>(
             Arrays.asList(
@@ -84,4 +82,21 @@ public class Data {
     public void setTypeContractors(List<TypeContractor> typeContractors) {
         this.typeContractors = typeContractors;
     }
+
+    private List<ProvidedService> providedServices = new ArrayList<>(
+            Arrays.asList(
+                    new ProvidedService("1", "providedService1", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("2", "providedService2", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("3", "providedService3", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("4", "providedService4", "description", LocalDateTime.now(), LocalDateTime.now())
+                    )
+    );
+    public List<ProvidedService> getProvidedServices(){
+        return providedServices;
+    }
+
+    public void setProvidedServices(List<ProvidedService> providedServices){
+        this.providedServices = providedServices;
+    }
+
 }
