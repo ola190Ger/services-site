@@ -9,6 +9,7 @@ package com.art.tbl.fakedata;
 import com.art.tbl.model.Category;
 import com.art.tbl.model.Location;
 import com.art.tbl.model.User;
+import com.art.tbl.model.TypeContractor;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
@@ -67,5 +68,20 @@ public class Data {
 
     public void setUsers(List<User> users){
         this.users = users;
+
+    private  List<TypeContractor> typeContractors = new ArrayList<>(
+            Arrays.asList(
+                    new TypeContractor("1", "type1", "description1", LocalDateTime.now(), LocalDateTime.now()),
+                    new TypeContractor("2", "type2", "description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new TypeContractor("3", "type3", "description3", LocalDateTime.now(), LocalDateTime.now())
+            )
+    );
+
+    public List<TypeContractor> getTypeContractors() {
+        return typeContractors;
+    }
+
+    public void setTypeContractors(List<TypeContractor> typeContractors) {
+        this.typeContractors = typeContractors;
     }
 }

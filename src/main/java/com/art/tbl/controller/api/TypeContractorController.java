@@ -7,17 +7,48 @@ package com.art.tbl.controller.api;
 */
 
 import com.art.tbl.model.TypeContractor;
+import com.art.tbl.service.typecontractor.impls.TypeContractorImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/typecontractor")
 public class TypeContractorController {
-    @RequestMapping("/getone")
-    public TypeContractor getone()
+    @Autowired
+    TypeContractorImpl service;
+
+    @RequestMapping("/getall")
+    public List<TypeContractor> getall()
     {
-        return new TypeContractor("1", "name", "description", LocalDateTime.now(), LocalDateTime.now());
+        return service.getall();
+    }
+
+    @RequestMapping("/get/{id}")
+    public TypeContractor get(@PathVariable("id") String id)
+    {
+        return service.get(id);
+    }
+
+    @RequestMapping("/create")
+    public TypeContractor create(@RequestBody TypeContractor typeContractor)
+    {
+        return service.create(typeContractor);
+    }
+
+    @RequestMapping("/update")
+    public TypeContractor update(@RequestBody TypeContractor typeContractor)
+    {
+        return service.update(typeContractor);
+    }
+
+    @RequestMapping("/delete/{id}")
+    public TypeContractor delete(@PathVariable("id") String id)
+    {
+        return service.delete(id);
     }
 }
