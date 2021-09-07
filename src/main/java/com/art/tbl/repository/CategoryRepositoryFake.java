@@ -26,6 +26,7 @@ public class CategoryRepositoryFake {
          category.setId(id.toString());
          category.setCreatedAt(LocalDateTime.now());
          category.setUpdatedAt(LocalDateTime.now());
+         category.setProvidedServices(data.getProvidedServices());
          data.getCategories().add(category);
          return category;
     }

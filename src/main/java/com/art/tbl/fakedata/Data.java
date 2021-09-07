@@ -17,12 +17,29 @@ import java.util.List;
 
 @Component
 public class Data {
+
+    private List<ProvidedService> providedServices = new ArrayList<>(
+            Arrays.asList(
+                    new ProvidedService("1", "providedService1", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("2", "providedService2", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("3", "providedService3", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("4", "providedService4", "description", LocalDateTime.now(), LocalDateTime.now())
+            )
+    );
+    public List<ProvidedService> getProvidedServices(){
+        return providedServices;
+    }
+
+    public void setProvidedServices(List<ProvidedService> providedServices){
+        this.providedServices = providedServices;
+    }
+
     private List<Category> categories = new ArrayList<>(
             Arrays.asList(
-                    new Category("1", "name", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new Category("2", "name", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new Category("3", "name", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new Category("4", "name", "description", LocalDateTime.now(), LocalDateTime.now())
+                    new Category("1", "name", this.providedServices, "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Category("2", "name", this.providedServices,"description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Category("3", "name", this.providedServices,"description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Category("4", "name", this.providedServices,"description", LocalDateTime.now(), LocalDateTime.now())
             )
     );
 
@@ -99,21 +116,7 @@ public class Data {
         this.typeContractors = typeContractors;
     }
 
-    private List<ProvidedService> providedServices = new ArrayList<>(
-            Arrays.asList(
-                    new ProvidedService("1", "providedService1", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new ProvidedService("2", "providedService2", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new ProvidedService("3", "providedService3", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new ProvidedService("4", "providedService4", "description", LocalDateTime.now(), LocalDateTime.now())
-                    )
-    );
-    public List<ProvidedService> getProvidedServices(){
-        return providedServices;
-    }
 
-    public void setProvidedServices(List<ProvidedService> providedServices){
-        this.providedServices = providedServices;
-    }
 
     private  List<Reviews> reviews = new ArrayList<>(
             Arrays.asList(
