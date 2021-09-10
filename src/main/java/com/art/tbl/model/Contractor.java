@@ -12,67 +12,43 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Data
 public class Contractor {
     private String id;
     private String name;
-    private String phone;
+    private List<String> phone;
     private LocalDate birthday;
     private String description;
-    private List<Category> category;
-    private Location location;
-    private TypeContractor typeContractor;
-    private List<ProvidedService> providedServices;
-    private List<SocialNetwork> socialNetworks;
-    private List<Image> images;
-    private List<Reviews> reviews;
-    private LocalDate createdDate;
-    private User user;
+    private List<String> typeContractorId;
+    private List<String> providedServicesId;
+    private User manager;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     public Contractor() {
     }
 
-    public Contractor(String name, String phone, LocalDate birthday, String description, List<Category> category,
-                      Location location, TypeContractor typeContractor, List<ProvidedService> providedServices,
-                      List<SocialNetwork> socialNetworks, List<Image> images, List<Reviews> reviews,
-                      LocalDate createdDate, User user) {
+    public Contractor(String name, List<String> phone, LocalDate birthday, String description, List<String> typeContractorId, List<String> providedServicesId, User manager) {
         this.name = name;
         this.phone = phone;
         this.birthday = birthday;
         this.description = description;
-        this.category = category;
-        this.location = location;
-        this.typeContractor = typeContractor;
-        this.providedServices = providedServices;
-        this.socialNetworks = socialNetworks;
-        this.images = images;
-        this.reviews = reviews;
-        this.createdDate = createdDate;
-        this.user = user;
+        this.typeContractorId = typeContractorId;
+        this.providedServicesId = providedServicesId;
+        this.manager = manager;
     }
 
-    public Contractor(String id, String name, String phone, LocalDate birthday, String description,
-                      List<Category> category, Location location, TypeContractor typeContractor,
-                      List<ProvidedService> providedServices, List<SocialNetwork> socialNetworks,
-                      List<Image> images, List<Reviews> reviews, LocalDate createdDate, User user,
-                      LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Contractor(String id, String name, List<String> phone, LocalDate birthday, String description, List<String> typeContractorId, List<String> providedServicesId, User manager, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.birthday = birthday;
         this.description = description;
-        this.category = category;
-        this.location = location;
-        this.typeContractor = typeContractor;
-        this.providedServices = providedServices;
-        this.socialNetworks = socialNetworks;
-        this.images = images;
-        this.reviews = reviews;
-        this.createdDate = createdDate;
-        this.user = user;
+        this.typeContractorId = typeContractorId;
+        this.providedServicesId = providedServicesId;
+        this.manager = manager;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -93,11 +69,11 @@ public class Contractor {
         this.name = name;
     }
 
-    public String getPhone() {
+    public List<String> getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(List<String> phone) {
         this.phone = phone;
     }
 
@@ -117,76 +93,28 @@ public class Contractor {
         this.description = description;
     }
 
-    public List<Category> getCategory() {
-        return category;
+    public List<String> getTypeContractorId() {
+        return typeContractorId;
     }
 
-    public void setCategory(List<Category> category) {
-        this.category = category;
+    public void setTypeContractorId(List<String> typeContractorId) {
+        this.typeContractorId = typeContractorId;
     }
 
-    public Location getLocation() {
-        return location;
+    public List<String> getProvidedServicesId() {
+        return providedServicesId;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+    public void setProvidedServicesId(List<String> providedServicesId) {
+        this.providedServicesId = providedServicesId;
     }
 
-    public TypeContractor getTypeContractor() {
-        return typeContractor;
+    public User getManager() {
+        return manager;
     }
 
-    public void setTypeContractor(TypeContractor typeContractor) {
-        this.typeContractor = typeContractor;
-    }
-
-    public List<ProvidedService> getProvidedServices() {
-        return providedServices;
-    }
-
-    public void setProvidedServices(List<ProvidedService> providedServices) {
-        this.providedServices = providedServices;
-    }
-
-    public List<SocialNetwork> getSocialNetworks() {
-        return socialNetworks;
-    }
-
-    public void setSocialNetworks(List<SocialNetwork> socialNetworks) {
-        this.socialNetworks = socialNetworks;
-    }
-
-    public List<Image> getImages() {
-        return images;
-    }
-
-    public void setImages(List<Image> images) {
-        this.images = images;
-    }
-
-    public List<Reviews> getReviews() {
-        return reviews;
-    }
-
-    public void setReviews(List<Reviews> reviews) {
-        this.reviews = reviews;
-    }
-
-    public LocalDate getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(LocalDate createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
+    public void setManager(User manager) {
+        this.manager = manager;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -208,16 +136,14 @@ public class Contractor {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Contractor)) return false;
-
+        if (o == null || getClass() != o.getClass()) return false;
         Contractor that = (Contractor) o;
-
         return getId().equals(that.getId());
     }
 
     @Override
     public int hashCode() {
-        return getId().hashCode();
+        return Objects.hash(getId());
     }
 
     @Override
@@ -225,18 +151,12 @@ public class Contractor {
         return "Contractor{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", phone='" + phone + '\'' +
+                ", phone=" + phone +
                 ", birthday=" + birthday +
                 ", description='" + description + '\'' +
-                ", category=" + category +
-                ", location=" + location +
-                ", typeContractor=" + typeContractor +
-                ", providedServices=" + providedServices +
-                ", socialNetworks=" + socialNetworks +
-                ", images=" + images +
-                ", reviews=" + reviews +
-                ", createdDate=" + createdDate +
-                ", user=" + user +
+                ", typeContractorId=" + typeContractorId +
+                ", providedServicesId=" + providedServicesId +
+                ", manager=" + manager +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';

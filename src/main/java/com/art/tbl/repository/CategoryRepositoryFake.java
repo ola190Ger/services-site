@@ -8,12 +8,14 @@ package com.art.tbl.repository;
 
 import com.art.tbl.fakedata.Data;
 import com.art.tbl.model.Category;
+import com.art.tbl.model.ProvidedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Repository
 public class CategoryRepositoryFake {
@@ -26,7 +28,6 @@ public class CategoryRepositoryFake {
          category.setId(id.toString());
          category.setCreatedAt(LocalDateTime.now());
          category.setUpdatedAt(LocalDateTime.now());
-         category.setProvidedServices(data.getProvidedServices());
          data.getCategories().add(category);
          return category;
     }

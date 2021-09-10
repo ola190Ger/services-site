@@ -14,6 +14,7 @@ public class SocialNetwork {
     private String id;
     private String name;
     private String url;
+    private String contractorId;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -21,16 +22,18 @@ public class SocialNetwork {
     public SocialNetwork() {
     }
 
-    public SocialNetwork(String name, String url, String description) {
+    public SocialNetwork(String name, String url, String contractorId, String description) {
         this.name = name;
         this.url = url;
+        this.contractorId = contractorId;
         this.description = description;
     }
 
-    public SocialNetwork(String id, String name, String url, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public SocialNetwork(String id, String name, String url, String contractorId, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.url = url;
+        this.contractorId = contractorId;
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -58,6 +61,14 @@ public class SocialNetwork {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getContractorId() {
+        return contractorId;
+    }
+
+    public void setContractorId(String contractorId) {
+        this.contractorId = contractorId;
     }
 
     public String getDescription() {
@@ -105,6 +116,7 @@ public class SocialNetwork {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", url='" + url + '\'' +
+                ", contractorId='" + contractorId + '\'' +
                 ", description='" + description + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

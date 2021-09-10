@@ -15,7 +15,6 @@ import java.util.List;
 public class Category {
     private String id;
     private String name;
-    private List<ProvidedService> providedServices;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -28,10 +27,9 @@ public class Category {
         this.description = description;
     }
 
-    public Category(String id, String name, List<ProvidedService> providedServices, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Category(String id, String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
-        this.providedServices = providedServices;
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -77,13 +75,6 @@ public class Category {
         this.updatedAt = updatedAt;
     }
 
-    public List<ProvidedService> getProvidedServices() {
-        return providedServices;
-    }
-
-    public void setProvidedServices(List<ProvidedService> providedServices) {
-        this.providedServices = providedServices;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -105,7 +96,6 @@ public class Category {
         return "Category{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", providedServices=" + providedServices +
                 ", description='" + description + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

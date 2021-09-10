@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/typecontractor")
-public class TypeContractorController {
+public class TypeContractorRESTController {
     @Autowired
     TypeContractorImpl service;
 

@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Data
 public class Subscription {
     private String id;
-    private Contractor contractor;
+    private String contractorid;
     private LocalDate startDate;
     private LocalDate endDate;
     private String description;
@@ -24,16 +24,16 @@ public class Subscription {
     public Subscription() {
     }
 
-    public Subscription(Contractor contractor, LocalDate startDate, LocalDate endDate, String description) {
-        this.contractor = contractor;
+    public Subscription(String contractorid, LocalDate startDate, LocalDate endDate, String description) {
+        this.contractorid = contractorid;
         this.startDate = startDate;
         this.endDate = endDate;
         this.description = description;
     }
 
-    public Subscription(String id, Contractor contractor, LocalDate startDate, LocalDate endDate, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Subscription(String id, String contractorid, LocalDate startDate, LocalDate endDate, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
-        this.contractor = contractor;
+        this.contractorid = contractorid;
         this.startDate = startDate;
         this.endDate = endDate;
         this.description = description;
@@ -49,12 +49,12 @@ public class Subscription {
         this.id = id;
     }
 
-    public Contractor getContractor() {
-        return contractor;
+    public String getContractorid() {
+        return contractorid;
     }
 
-    public void setContractor(Contractor contractor) {
-        this.contractor = contractor;
+    public void setContractorid(String contractorid) {
+        this.contractorid = contractorid;
     }
 
     public LocalDate getStartDate() {
@@ -116,7 +116,7 @@ public class Subscription {
     public String toString() {
         return "Subscription{" +
                 "id='" + id + '\'' +
-                ", contractor=" + contractor +
+                ", contractorid='" + contractorid + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
                 ", description='" + description + '\'' +

@@ -16,11 +16,11 @@ import java.time.LocalDateTime;
 @RestController
 @RequestMapping("/api/contractor")
 public class ContractorController {
-    @RequestMapping("/getone")
-    public Contractor getone()
-    {
-        return new Contractor("1", "name", "phone", LocalDate.now(), "description", null, new Location(),
-                new TypeContractor(), null, null, null, null, LocalDate.now(),
-                new User(), LocalDateTime.now(), LocalDateTime.now());
-    }
+//    @RequestMapping("/getone")
+//    public Contractor getone()
+//    {
+//        return new Contractor("1", "name", "phone", LocalDate.now(), "description", null, new Location(),
+//                new TypeContractor(), null, null, null, null, LocalDate.now(),
+//                new User(), LocalDateTime.now(), LocalDateTime.now());
+//    }
 }
