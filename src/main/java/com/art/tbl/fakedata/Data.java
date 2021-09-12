@@ -9,6 +9,7 @@ package com.art.tbl.fakedata;
 import com.art.tbl.model.*;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -133,5 +134,31 @@ public class Data {
 
     public void setReviews(List<Reviews> reviews) {
         this.reviews = reviews;
+    }
+
+
+    private ArrayList<String> phone = new ArrayList<>(
+           Arrays.asList("phone1", "phone2")
+    );
+
+
+    private List<Contractor> contractors = new ArrayList<>(
+            Arrays.asList(
+                    new Contractor("1", "name", this.phone, LocalDate.now(), "description", this.typeContractors.stream().map(TypeContractor::getId).collect(Collectors.toList()),
+                            this.providedServices.stream().map(ProvidedService::getId).collect(Collectors.toList()), this.users.get(0), LocalDateTime.now(), LocalDateTime.now()),
+                    new Contractor("2", "name2", this.phone, LocalDate.now(), "description2", this.typeContractors.stream().map(TypeContractor::getId).collect(Collectors.toList()),
+                            this.providedServices.stream().map(ProvidedService::getId).collect(Collectors.toList()), this.users.get(0), LocalDateTime.now(), LocalDateTime.now()),
+                    new Contractor("3", "name3", this.phone, LocalDate.now(), "description3", this.typeContractors.stream().map(TypeContractor::getId).collect(Collectors.toList()),
+                            this.providedServices.stream().map(ProvidedService::getId).collect(Collectors.toList()), this.users.get(0), LocalDateTime.now(), LocalDateTime.now())
+
+            )
+    );
+
+    public List<Contractor> getContractors() {
+        return contractors;
+    }
+
+    public void setContractors(List<Contractor> contractors) {
+        this.contractors = contractors;
     }
 }
