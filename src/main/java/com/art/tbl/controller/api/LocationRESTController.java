@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/location")
-public class LocationController {
+public class LocationRESTController {
     @Autowired
     LocationServiceImpl service;
 
