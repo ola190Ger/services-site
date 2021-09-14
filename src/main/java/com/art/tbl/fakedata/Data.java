@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -147,9 +148,9 @@ public class Data {
                     new Contractor("1", "name", this.phone, LocalDate.now(), "description", this.typeContractors.stream().map(TypeContractor::getId).collect(Collectors.toList()),
                             this.providedServices.stream().map(ProvidedService::getId).collect(Collectors.toList()), this.users.get(0), LocalDateTime.now(), LocalDateTime.now()),
                     new Contractor("2", "name2", this.phone, LocalDate.now(), "description2", this.typeContractors.stream().map(TypeContractor::getId).collect(Collectors.toList()),
-                            this.providedServices.stream().map(ProvidedService::getId).collect(Collectors.toList()), this.users.get(0), LocalDateTime.now(), LocalDateTime.now()),
+                            this.providedServices.stream().map(ProvidedService::getId).collect(Collectors.toList()), this.users.get(1), LocalDateTime.now(), LocalDateTime.now()),
                     new Contractor("3", "name3", this.phone, LocalDate.now(), "description3", this.typeContractors.stream().map(TypeContractor::getId).collect(Collectors.toList()),
-                            this.providedServices.stream().map(ProvidedService::getId).collect(Collectors.toList()), this.users.get(0), LocalDateTime.now(), LocalDateTime.now())
+                            this.providedServices.stream().map(ProvidedService::getId).collect(Collectors.toList()), this.users.get(2), LocalDateTime.now(), LocalDateTime.now())
 
             )
     );
@@ -160,5 +161,21 @@ public class Data {
 
     public void setContractors(List<Contractor> contractors) {
         this.contractors = contractors;
+    }
+
+    private  List<Subscription> subscriptions = new ArrayList<>(
+            Arrays.asList(
+                    new Subscription("1", this.contractors.get(0).getId(), LocalDate.now(), LocalDate.now().plus(Period.ofMonths(1)), "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Subscription("2", this.contractors.get(2).getId(), LocalDate.now(), LocalDate.now().plus(Period.ofMonths(2)), "description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new Subscription("3", this.contractors.get(1).getId(), LocalDate.now(), LocalDate.now().plus(Period.ofMonths(1)), "description3", LocalDateTime.now(), LocalDateTime.now())
+            )
+    );
+
+    public List<Subscription> getSubscriptions() {
+        return subscriptions;
+    }
+
+    public void setSubscriptions(List<Subscription> subscriptions) {
+        this.subscriptions = subscriptions;
     }
 }
