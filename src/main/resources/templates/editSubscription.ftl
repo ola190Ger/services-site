@@ -12,9 +12,9 @@
 <div>
     <a href="/web/subscriptions/list">Back</a>
     <fieldset>
-        <legend>Add Subscription</legend>
+        <legend>Edit Subscription</legend>
         <form name="subscriptionForm" action="" method="POST">
-            ContractorId:<@spring.formSingleSelect "subscriptionForm.contractorId", contractorId ,""/>
+            ContractorId:<@spring.formInput "subscriptionForm.contractorId" "" "text"/>
             <br>
             Start date:<@spring.formInput "subscriptionForm.startDate" "" "date"/>
             <br>
@@ -22,7 +22,7 @@
             <br>
             Description:<@spring.formInput "subscriptionForm.description" "" "text"/>
             <br>
-            <input type="submit" value="Create"/>
+            <input type="submit" value="Edit"/>
         </form>
     </fieldset>
 </div>
