@@ -7,20 +7,50 @@ package com.art.tbl.controller.api;
 */
 
 import com.art.tbl.model.*;
+import com.art.tbl.service.contractor.impls.ContractorServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/contractor")
 public class ContractorController {
-    @RequestMapping("/getone")
-    public Contractor getone()
+    @Autowired
+    ContractorServiceImpl service;
+
+    @RequestMapping("/getall")
+    public List<Contractor> getAll()
     {
-        return new Contractor("1", "name", "phone", LocalDate.now(), "description", null, new Location(),
-                new TypeContractor(), null, null, null, null, LocalDate.now(),
-                new User(), LocalDateTime.now(), LocalDateTime.now());
+        return service.getAll();
+    }
+
+    @RequestMapping("/get/{id}")
+    public Contractor get(@PathVariable("id") String id)
+    {
+        return service.get(id);
+    }
+
+    @RequestMapping("/create")
+    public Contractor create(@RequestBody Contractor contractor)
+    {
+        return service.create(contractor);
+    }
+
+    @RequestMapping("/update")
+    public Contractor update(@RequestBody Contractor contractor)
+    {
+        return service.update(contractor);
+    }
+
+    @RequestMapping("/delete/{id}")
+    public Contractor delete(@PathVariable("id") String id)
+    {
+        return service.delete(id);
     }
 }

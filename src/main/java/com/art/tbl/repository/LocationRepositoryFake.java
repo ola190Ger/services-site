@@ -5,12 +5,15 @@ package com.art.tbl.repository;/*
 @Time 20:25
 */
 import com.art.tbl.fakedata.Data;
+import com.art.tbl.model.Contractor;
 import com.art.tbl.model.Location;
+import com.art.tbl.model.ProvidedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository
 public class LocationRepositoryFake {
@@ -18,6 +21,8 @@ public class LocationRepositoryFake {
     Data data;
 
     public Location create(Location location){
+//        location.setContractorId(data.getContractor().stream()
+//                .map(Contractor::getId).collect(Collectors.toList()));
         data.getLocations().add(location);
         return location;
     }

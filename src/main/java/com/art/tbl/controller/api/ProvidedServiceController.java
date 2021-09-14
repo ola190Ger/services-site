@@ -50,9 +50,4 @@ public class ProvidedServiceController {
         return service.delete(id);
     }
 
-    @RequestMapping("/getone")
-    public ProvidedService getone()
-    {
-        return new ProvidedService("1", "name", "description", LocalDateTime.now(), LocalDateTime.now());
-    }
 }

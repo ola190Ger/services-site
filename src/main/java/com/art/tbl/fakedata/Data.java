@@ -9,18 +9,21 @@ package com.art.tbl.fakedata;
 import com.art.tbl.model.*;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class Data {
+
     private List<Category> categories = new ArrayList<>(
             Arrays.asList(
-                    new Category("1", "name", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new Category("2", "name", "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Category("1", "name","description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Category("2", "name","description", LocalDateTime.now(), LocalDateTime.now()),
                     new Category("3", "name", "description", LocalDateTime.now(), LocalDateTime.now()),
                     new Category("4", "name", "description", LocalDateTime.now(), LocalDateTime.now())
             )
@@ -34,11 +37,27 @@ public class Data {
         this.categories = categories;
     }
 
+    private List<ProvidedService> providedServices = new ArrayList<>(
+            Arrays.asList(
+                    new ProvidedService("1", "providedService1", null, this.categories.stream().map(Category::getId).collect(Collectors.toList()),"description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("2", "providedService2", null, this.categories.stream().map(Category::getId).collect(Collectors.toList()),"description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("3", "providedService3", null, this.categories.stream().map(Category::getId).collect(Collectors.toList()), "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("4", "providedService4", null, this.categories.stream().map(Category::getId).collect(Collectors.toList()), "description", LocalDateTime.now(), LocalDateTime.now())
+            )
+    );
+    public List<ProvidedService> getProvidedServices(){
+        return providedServices;
+    }
+
+    public void setProvidedServices(List<ProvidedService> providedServices){
+        this.providedServices = providedServices;
+    }
+
     private List<Location> locations = new ArrayList<>(
             Arrays.asList(
-            new Location("1", "country", "region", "city","description", LocalDateTime.now(), LocalDateTime.now()),
-            new Location("2", "country2", "region2", "city2","description2", LocalDateTime.now(), LocalDateTime.now()),
-            new Location("3", "country3", "region3", "city3","description3", LocalDateTime.now(), LocalDateTime.now())
+            new Location("1", "country", "region", "city", null,"description", LocalDateTime.now(), LocalDateTime.now()),
+            new Location("2", "country2", "region2", "city2",null,"description2", LocalDateTime.now(), LocalDateTime.now()),
+            new Location("3", "country3", "region3", "city3",null, "description3", LocalDateTime.now(), LocalDateTime.now())
     )
     );
 
@@ -52,9 +71,9 @@ public class Data {
 
     private List<SocialNetwork> socialNetworks = new ArrayList<>(
             Arrays.asList(
-                    new SocialNetwork("1", "name", "url", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new SocialNetwork("2", "name2", "url2", "description2", LocalDateTime.now(), LocalDateTime.now()),
-                    new SocialNetwork("3", "name3", "url3", "description3", LocalDateTime.now(), LocalDateTime.now())
+                    new SocialNetwork("1", "name", "url", null,"description", LocalDateTime.now(), LocalDateTime.now()),
+                    new SocialNetwork("2", "name2", "url2", null,"description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new SocialNetwork("3", "name3", "url3", null,"description3", LocalDateTime.now(), LocalDateTime.now())
             )
     );
 
@@ -99,27 +118,13 @@ public class Data {
         this.typeContractors = typeContractors;
     }
 
-    private List<ProvidedService> providedServices = new ArrayList<>(
-            Arrays.asList(
-                    new ProvidedService("1", "providedService1", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new ProvidedService("2", "providedService2", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new ProvidedService("3", "providedService3", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new ProvidedService("4", "providedService4", "description", LocalDateTime.now(), LocalDateTime.now())
-                    )
-    );
-    public List<ProvidedService> getProvidedServices(){
-        return providedServices;
-    }
 
-    public void setProvidedServices(List<ProvidedService> providedServices){
-        this.providedServices = providedServices;
-    }
 
     private  List<Reviews> reviews = new ArrayList<>(
             Arrays.asList(
-                    new Reviews("1","text", "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new Reviews("2","text2", "description2", LocalDateTime.now(), LocalDateTime.now()),
-                    new Reviews("3","text3", "description3", LocalDateTime.now(), LocalDateTime.now())
+                    new Reviews("1","text", null,"description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Reviews("2","text2", null,"description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new Reviews("3","text3", null,"description3", LocalDateTime.now(), LocalDateTime.now())
             )
     );
 
@@ -129,5 +134,31 @@ public class Data {
 
     public void setReviews(List<Reviews> reviews) {
         this.reviews = reviews;
+    }
+
+
+    private ArrayList<String> phone = new ArrayList<>(
+           Arrays.asList("phone1", "phone2")
+    );
+
+
+    private List<Contractor> contractors = new ArrayList<>(
+            Arrays.asList(
+                    new Contractor("1", "name", this.phone, LocalDate.now(), "description", this.typeContractors.stream().map(TypeContractor::getId).collect(Collectors.toList()),
+                            this.providedServices.stream().map(ProvidedService::getId).collect(Collectors.toList()), this.users.get(0), LocalDateTime.now(), LocalDateTime.now()),
+                    new Contractor("2", "name2", this.phone, LocalDate.now(), "description2", this.typeContractors.stream().map(TypeContractor::getId).collect(Collectors.toList()),
+                            this.providedServices.stream().map(ProvidedService::getId).collect(Collectors.toList()), this.users.get(0), LocalDateTime.now(), LocalDateTime.now()),
+                    new Contractor("3", "name3", this.phone, LocalDate.now(), "description3", this.typeContractors.stream().map(TypeContractor::getId).collect(Collectors.toList()),
+                            this.providedServices.stream().map(ProvidedService::getId).collect(Collectors.toList()), this.users.get(0), LocalDateTime.now(), LocalDateTime.now())
+
+            )
+    );
+
+    public List<Contractor> getContractors() {
+        return contractors;
+    }
+
+    public void setContractors(List<Contractor> contractors) {
+        this.contractors = contractors;
     }
 }

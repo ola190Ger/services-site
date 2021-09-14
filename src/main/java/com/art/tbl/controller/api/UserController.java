@@ -49,10 +49,4 @@ public class UserController {
     {
         return service.delete(id);
     }
-    @RequestMapping("/getone")
-    public User getone()
-    {
-        return new User("1", "name", "surname", "email", "pass",
-                "description", LocalDateTime.now(), LocalDateTime.now());
-    }
 }

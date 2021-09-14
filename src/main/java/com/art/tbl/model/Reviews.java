@@ -14,6 +14,7 @@ import java.time.LocalDateTime;
 public class Reviews {
     private String id;
     private String text;
+    private String contractorId;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -21,14 +22,16 @@ public class Reviews {
     public Reviews() {
     }
 
-    public Reviews(String text, String description) {
+    public Reviews(String text, String contractorId, String description) {
         this.text = text;
+        this.contractorId = contractorId;
         this.description = description;
     }
 
-    public Reviews(String id, String text, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Reviews(String id, String text, String contractorId, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.text = text;
+        this.contractorId = contractorId;
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -56,6 +59,14 @@ public class Reviews {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getContractorId() {
+        return contractorId;
+    }
+
+    public void setContractorId(String contractorId) {
+        this.contractorId = contractorId;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -94,6 +105,7 @@ public class Reviews {
         return "Reviews{" +
                 "id='" + id + '\'' +
                 ", text='" + text + '\'' +
+                ", contractorId='" + contractorId + '\'' +
                 ", description='" + description + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
