@@ -27,6 +27,9 @@
 </br>
 </br>
 <a href="<@spring.url '/web/users/list'/>">Users List</a>
+</br>
+</br>
+<a href="<@spring.url '/web/reviews/list'/>">Reviews List</a>
 
 
 </body>
