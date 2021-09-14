@@ -20,19 +20,19 @@
             <th>Delete</th>
             <th>Edit</th>
         </tr>
-        <#list typeContractors as typeContractor>
+        <#list categories as category>
             <tr>
-                <td>${typeContractor.name}</td>
-                <td>${typeContractor.description}</td>
-                <td><a href="/web/typecontractors/delete/${typeContractor.id}">Delete</a></td>
-                <td><a href="/web/typecontractors/edit/${typeContractor.id}">Edit</a></td>
+                <td>${category.name}</td>
+                <td>${category.description}</td>
+                <td><a href="/web/categories/delete/${category.id}">Delete</a></td>
+                <td><a href="/web/categories/edit/${category.id}">Edit</a></td>
             </tr>
         </#list>
     </table>
 
 </div>
 
-<a href="/web/typecontractors/add">Add new TypeContractors</a>
+<a href="/web/categories/add">Add new Category</a>
 
 
 </body>

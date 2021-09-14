@@ -10,13 +10,13 @@
 <body>
 
 <div>
-    <a href="/web/typecontractors/list">Back</a>
+    <a href="/web/categories/list">Back</a>
     <fieldset>
-        <legend>Add TypeContractor</legend>
-        <form name="typeContractor" action="" method="POST">
-            Name:<@spring.formInput "typeContractor.name" "" "text"/>
+        <legend>Add Category</legend>
+        <form name="category" action="" method="POST">
+            Name:<@spring.formInput "category.name" "" "text"/>
             <br>
-            Description:<@spring.formInput "typeContractor.description" "" "text"/>
+            Description:<@spring.formInput "category.description" "" "text"/>
             <br>
             <input type="submit" value="Create"/>
         </form>

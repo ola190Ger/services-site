@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/subscription")
-public class SubscriptionController {
+public class SubscriptionRESTController {
     @Autowired
     SubscriptionServiceImpl service;
 
