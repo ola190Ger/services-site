@@ -6,6 +6,7 @@ package com.art.tbl.controller.ui;
 @time 19:41 
 */
 
+import com.art.tbl.form.SubscriptionForm;
 import com.art.tbl.model.Contractor;
 import com.art.tbl.model.Subscription;
 import com.art.tbl.service.contractor.impls.ContractorServiceImpl;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -54,15 +56,22 @@ public class SubscriptionController {
     public String editSubscription(Model model, @PathVariable("id") String id)
     {
         Subscription subscription = subscriptionService.get(id);
-        model.addAttribute("subscription", subscription);
+        SubscriptionForm subscriptionForm = new SubscriptionForm(subscription.getContractorId(),
+                subscription.getStartDate().toString(), subscription.getEndDate().toString(), subscription.getDescription());
+        model.addAttribute("subscriptionForm", subscriptionForm);
         return "editSubscription";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editSubscription(Model model,
-                                     @ModelAttribute("subscription") Subscription subscription,
+                                     @ModelAttribute("subscriptionForm") SubscriptionForm subscriptionForm,
                                      @PathVariable("id") String id)
     {
+        Subscription subscription = subscriptionService.get(id);
+        subscription.setContractorId(subscriptionForm.getContractorId());
+        subscription.setStartDate(LocalDate.parse(subscriptionForm.getStartDate()));
+        subscription.setEndDate(LocalDate.parse(subscriptionForm.getEndDate()));
+        subscription.setDescription(subscriptionForm.getDescription());
         subscriptionService.update(subscription);
         return "redirect:/web/subscriptions/list";
     }
@@ -70,20 +79,22 @@ public class SubscriptionController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addSubscription(Model model)
     {
-        Subscription subscription = new Subscription();
+        SubscriptionForm subscriptionForm = new SubscriptionForm();
         List<String> contractorId = contractorService.getAll().stream()
                 .map(Contractor::getId).collect(Collectors.toList());
-        String test = subscription.getEndDate().toString();
-        model.addAttribute("subscription", subscription);
+        model.addAttribute("subscriptionForm", subscriptionForm);
         model.addAttribute("contractorId", contractorId);
         return "addSubscription";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addSubscription(Model model,
-                                    @ModelAttribute("subscription") Subscription subscription)
+                                    @ModelAttribute("subscriptionForm") SubscriptionForm subscriptionForm)
     {
+        Subscription subscription = new Subscription(subscriptionForm.getContractorId(),
+                LocalDate.parse(subscriptionForm.getStartDate()),LocalDate.parse(subscriptionForm.getEndDate()),
+                subscriptionForm.getDescription());
         subscriptionService.create(subscription);
-        return "redirect:/web/subscription/list";
+        return "redirect:/web/subscriptions/list";
     }
 }
