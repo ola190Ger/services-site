@@ -16,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/reviews")
-public class ReviewsController {
+public class ReviewsRESTController {
     @Autowired
     ReviewsServiceImpl service;
 
