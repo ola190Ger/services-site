@@ -9,12 +9,15 @@ package com.art.tbl.model;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 public class ProvidedService {
 
     private String id;
     private String name;
+    private List<String> contractorId;
+    private List<String> categoryId;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -22,14 +25,18 @@ public class ProvidedService {
     public ProvidedService() {
     }
 
-    public ProvidedService(String name, String description) {
+    public ProvidedService(String name, List<String> contractorId, List<String> categoryId, String description) {
         this.name = name;
+        this.contractorId = contractorId;
+        this.categoryId = categoryId;
         this.description = description;
     }
 
-    public ProvidedService(String id, String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public ProvidedService(String id, String name, List<String> contractorId, List<String> categoryId, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
+        this.contractorId = contractorId;
+        this.categoryId = categoryId;
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
@@ -49,6 +56,22 @@ public class ProvidedService {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<String> getContractorId() {
+        return contractorId;
+    }
+
+    public void setContractorId(List<String> contractorId) {
+        this.contractorId = contractorId;
+    }
+
+    public List<String> getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(List<String> categoryId) {
+        this.categoryId = categoryId;
     }
 
     public String getDescription() {
@@ -95,6 +118,8 @@ public class ProvidedService {
         return "ProvidedService{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", contractorId=" + contractorId +
+                ", categoryId=" + categoryId +
                 ", description='" + description + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +

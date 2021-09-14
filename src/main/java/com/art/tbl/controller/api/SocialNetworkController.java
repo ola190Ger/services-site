@@ -8,17 +8,44 @@ package com.art.tbl.controller.api;
 
 
 import com.art.tbl.model.SocialNetwork;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.art.tbl.service.socialnetwork.impls.SocialNetworkServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/socialnetwork")
 public class SocialNetworkController {
-    @RequestMapping("/getone")
-    public SocialNetwork getone()
+    @Autowired
+    SocialNetworkServiceImpl service;
+
+    @RequestMapping("/getall")
+    public List<SocialNetwork> getAll() {
+        return service.getall();
+    }
+
+    @RequestMapping("/get/{id}")
+    public SocialNetwork get(@PathVariable("id") String id)
     {
-        return new SocialNetwork("1", "name", "url", LocalDateTime.now(), LocalDateTime.now());
+        return service.get(id);
+    }
+
+    @PostMapping("/create")
+    public SocialNetwork create(@RequestBody SocialNetwork socialNetwork)
+    {
+        return service.create(socialNetwork);
+    }
+
+    @PostMapping("update")
+    public SocialNetwork update(@RequestBody SocialNetwork socialNetwork)
+    {
+        return  service.update(socialNetwork);
+    }
+
+    @RequestMapping("/delete/{id}")
+    public SocialNetwork delete(@PathVariable("id") String id)
+    {
+        return service.delete(id);
     }
 }

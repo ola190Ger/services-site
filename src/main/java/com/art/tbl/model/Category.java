@@ -10,9 +10,8 @@ import lombok.Data;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
-@Data
-@Getter
 public class Category {
     private String id;
     private String name;
@@ -75,6 +74,7 @@ public class Category {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
+
 
     @Override
     public boolean equals(Object o) {

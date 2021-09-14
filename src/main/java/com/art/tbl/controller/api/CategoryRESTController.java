@@ -11,12 +11,11 @@ import com.art.tbl.service.category.impls.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/category")
-public class CategoryController {
+public class CategoryRESTController {
     @Autowired
     CategoryServiceImpl service;
 
@@ -29,12 +28,6 @@ public class CategoryController {
     public Category get(@PathVariable("id") String id)
     {
         return service.get(id);
-    }
-
-    @RequestMapping("/getone")
-    public Category getone()
-    {
-        return new Category("1", "category","desc", LocalDateTime.now(), LocalDateTime.now());
     }
 
     @PostMapping("/create")

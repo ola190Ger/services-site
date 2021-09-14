@@ -1,52 +1,54 @@
 package com.art.tbl.controller.api;
 /*
 @author ArtemFrunze
-@class LocationController
+@class TypeContractorController
 @date 01.09.2021
-@time 19:39 
+@time 19:54 
 */
 
-import com.art.tbl.model.Location;
-import com.art.tbl.service.location.impls.LocationServiceImpl;
+import com.art.tbl.model.TypeContractor;
+import com.art.tbl.service.typecontractor.impls.TypeContractorImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/location")
-public class LocationController {
+@RequestMapping("/api/typecontractor")
+public class TypeContractorRESTController {
     @Autowired
-    LocationServiceImpl service;
+    TypeContractorImpl service;
 
     @RequestMapping("/getall")
-    public List<Location> getAll()
+    public List<TypeContractor> getall()
     {
         return service.getall();
     }
 
     @RequestMapping("/get/{id}")
-    public Location get(@PathVariable("id") String id)
+    public TypeContractor get(@PathVariable("id") String id)
     {
         return service.get(id);
     }
 
     @RequestMapping("/create")
-    public Location create(@RequestBody Location location){
-        return service.create(location);
+    public TypeContractor create(@RequestBody TypeContractor typeContractor)
+    {
+        return service.create(typeContractor);
     }
+
     @RequestMapping("/update")
-    public Location update(@RequestBody Location location){
-        return service.update(location);
+    public TypeContractor update(@RequestBody TypeContractor typeContractor)
+    {
+        return service.update(typeContractor);
     }
+
     @RequestMapping("/delete/{id}")
-    public Location delete(@PathVariable("id") String id)
+    public TypeContractor delete(@PathVariable("id") String id)
     {
         return service.delete(id);
     }
-
 }

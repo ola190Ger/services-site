@@ -13,6 +13,7 @@ import java.time.LocalDateTime;
 public class Image {
     private String id;
     private String name;
+    private String contractorId;
     private String description;
     private java.awt.Image image;
     private LocalDateTime createdAt;
@@ -21,15 +22,17 @@ public class Image {
     public Image() {
     }
 
-    public Image(String name, String description, java.awt.Image image) {
+    public Image(String name, String contractorId, String description, java.awt.Image image) {
         this.name = name;
+        this.contractorId = contractorId;
         this.description = description;
         this.image = image;
     }
 
-    public Image(String id, String name, String description, java.awt.Image image, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Image(String id, String name, String contractorId, String description, java.awt.Image image, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
+        this.contractorId = contractorId;
         this.description = description;
         this.image = image;
         this.createdAt = createdAt;
@@ -50,6 +53,14 @@ public class Image {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getContractorId() {
+        return contractorId;
+    }
+
+    public void setContractorId(String contractorId) {
+        this.contractorId = contractorId;
     }
 
     public String getDescription() {
@@ -104,6 +115,7 @@ public class Image {
         return "Image{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", contractorId='" + contractorId + '\'' +
                 ", description='" + description + '\'' +
                 ", image=" + image +
                 ", createdAt=" + createdAt +

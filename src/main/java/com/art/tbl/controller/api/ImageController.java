@@ -18,34 +18,5 @@ import java.time.LocalDateTime;
 @RestController
 @RequestMapping("/api/image")
 public class ImageController {
-    @RequestMapping("/getone")
-    public Image getone()
-    {
-        return new Image("1", "image", new java.awt.Image() {
-            @Override
-            public int getWidth(ImageObserver observer) {
-                return 0;
-            }
 
-            @Override
-            public int getHeight(ImageObserver observer) {
-                return 0;
-            }
-
-            @Override
-            public ImageProducer getSource() {
-                return null;
-            }
-
-            @Override
-            public Graphics getGraphics() {
-                return null;
-            }
-
-            @Override
-            public Object getProperty(String name, ImageObserver observer) {
-                return null;
-            }
-        }, LocalDateTime.now(), LocalDateTime.now());
-    }
 }
