@@ -15,6 +15,13 @@
 
 
 <a href="<@spring.url '/web/typecontractors/list'/>">TypeContractor List</a>
+</br>
+</br>
+<a href="<@spring.url '/web/categories/list'/>">Category List</a>
+</br>
+</br>
+<a href="<@spring.url '/web/subscriptions/list'/>">Subscription List</a>
+
 
 </body>
 </html>
