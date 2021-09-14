@@ -9,30 +9,34 @@
 </head>
 <body>
 <a href="/"><h2>Home</h2></a>
-<h3>Category list</h3>
+<h3>User list</h3>
 <br>
 <div>
 
     <table border="3" bgcolor="#f0f8ff">
         <tr>
             <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
             <th>Description</th>
             <th>Delete</th>
             <th>Edit</th>
         </tr>
-        <#list categories as category>
+        <#list users as user>
             <tr>
-                <td>${category.name}</td>
-                <td>${category.description}</td>
-                <td><a href="/web/categories/delete/${category.id}">Delete</a></td>
-                <td><a href="/web/categories/edit/${category.id}">Edit</a></td>
+                <td>${user.name}</td>
+                <td>${user.surname}</td>
+                <td>${user.email}</td>
+                <td>${user.description}</td>
+                <td><a href="/web/users/delete/${user.id}">Delete</a></td>
+                <td><a href="/web/users/edit/${user.id}">Edit</a></td>
             </tr>
         </#list>
     </table>
 
 </div>
 
-<a href="/web/categories/add">Add new Category</a>
+<a href="/web/users/add">Add new Location</a>
 
 
 </body>
