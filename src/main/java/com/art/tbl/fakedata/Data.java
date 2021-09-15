@@ -72,9 +72,9 @@ public class Data {
 
     private List<SocialNetwork> socialNetworks = new ArrayList<>(
             Arrays.asList(
-                    new SocialNetwork("1", "name", "url", null,"description", LocalDateTime.now(), LocalDateTime.now()),
-                    new SocialNetwork("2", "name2", "url2", null,"description2", LocalDateTime.now(), LocalDateTime.now()),
-                    new SocialNetwork("3", "name3", "url3", null,"description3", LocalDateTime.now(), LocalDateTime.now())
+                    new SocialNetwork("1", "name", "url", "null","description", LocalDateTime.now(), LocalDateTime.now()),
+                    new SocialNetwork("2", "name2", "url2", "null","description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new SocialNetwork("3", "name3", "url3", "null","description3", LocalDateTime.now(), LocalDateTime.now())
             )
     );
 
