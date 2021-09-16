@@ -18,8 +18,12 @@
             <th>Name</th>
             <th>Phone</th>
             <th>Birthday</th>
-            <th>TypeContractor</th>
             <th>Description</th>
+            <th>TypeContractor</th>
+            <th>ProvideService</th>
+            <th>Location</th>
+            <th>Social Network</th>
+            <th>Reviews</th>
             <th>Delete</th>
             <th>Edit</th>
         </tr>
@@ -34,6 +38,10 @@
                 <td>${contractor.birthday}</td>
                 <td>${contractor.description}</td>
                 <td><a href="/web/contractors/addTypeContractor/${contractor.id}">Add TypeContractor</a></td>
+                <td><a href="/web/contractors/addProvideService/${contractor.id}">Add ProvideService</a></td>
+                <td><a href="/web/contractors/addLocation/${contractor.id}">Add Location</a></td>
+                <td><a href="/web/contractors/addSocialNetwork/${contractor.id}">Add Social Network</a></td>
+                <td><a href="/web/contractors/addReviews/${contractor.id}">Add Reviews</a></td>
                 <td><a href="/web/contractors/delete/${contractor.id}">Delete</a></td>
                 <td><a href="/web/contractors/edit/${contractor.id}">Edit</a></td>
             </tr>

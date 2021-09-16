@@ -40,9 +40,9 @@ public class Data {
 
     private List<ProvidedService> providedServices = new ArrayList<>(
             Arrays.asList(
-                    new ProvidedService("1", "providedService1", null, this.categories.stream().map(Category::getId).collect(Collectors.toList()),"description", LocalDateTime.now(), LocalDateTime.now()),
-                    new ProvidedService("2", "providedService2", null, this.categories.stream().map(Category::getId).collect(Collectors.toList()),"description", LocalDateTime.now(), LocalDateTime.now()),
-                    new ProvidedService("3", "providedService3", null, this.categories.stream().map(Category::getId).collect(Collectors.toList()), "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("1", "providedService1", null, new ArrayList<>(),"description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("2", "providedService2", null, new ArrayList<>(),"description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("3", "providedService3", null, new ArrayList<>(), "description", LocalDateTime.now(), LocalDateTime.now()),
                     new ProvidedService("4", "providedService4", null, this.categories.stream().map(Category::getId).collect(Collectors.toList()), "description", LocalDateTime.now(), LocalDateTime.now())
             )
     );
@@ -54,27 +54,11 @@ public class Data {
         this.providedServices = providedServices;
     }
 
-    private List<Location> locations = new ArrayList<>(
-            Arrays.asList(
-            new Location("1", "country", "region", "city", null,"description", LocalDateTime.now(), LocalDateTime.now()),
-            new Location("2", "country2", "region2", "city2",null,"description2", LocalDateTime.now(), LocalDateTime.now()),
-            new Location("3", "country3", "region3", "city3",null, "description3", LocalDateTime.now(), LocalDateTime.now())
-    )
-    );
-
-    public List<Location> getLocations() {
-        return locations;
-    }
-
-    public void setLocations(List<Location> locations) {
-        this.locations = locations;
-    }
-
     private List<SocialNetwork> socialNetworks = new ArrayList<>(
             Arrays.asList(
-                    new SocialNetwork("1", "name", "url", null,"description", LocalDateTime.now(), LocalDateTime.now()),
-                    new SocialNetwork("2", "name2", "url2", null,"description2", LocalDateTime.now(), LocalDateTime.now()),
-                    new SocialNetwork("3", "name3", "url3", null,"description3", LocalDateTime.now(), LocalDateTime.now())
+                    new SocialNetwork("1", "name", "url", "1","description", LocalDateTime.now(), LocalDateTime.now()),
+                    new SocialNetwork("2", "name2", "url2", "3","description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new SocialNetwork("3", "name3", "url3", "2","description3", LocalDateTime.now(), LocalDateTime.now())
             )
     );
 
@@ -123,9 +107,9 @@ public class Data {
 
     private  List<Reviews> reviews = new ArrayList<>(
             Arrays.asList(
-                    new Reviews("1","text", null,"description", LocalDateTime.now(), LocalDateTime.now()),
-                    new Reviews("2","text2", null,"description2", LocalDateTime.now(), LocalDateTime.now()),
-                    new Reviews("3","text3", null,"description3", LocalDateTime.now(), LocalDateTime.now())
+                    new Reviews("1","text", "3","description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Reviews("2","text2", "1","description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new Reviews("3","text3", "3","description3", LocalDateTime.now(), LocalDateTime.now())
             )
     );
 
@@ -177,5 +161,21 @@ public class Data {
 
     public void setSubscriptions(List<Subscription> subscriptions) {
         this.subscriptions = subscriptions;
+    }
+
+    private List<Location> locations = new ArrayList<>(
+            Arrays.asList(
+                    new Location("1", "country", "region", "city", new ArrayList<>(),"description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Location("2", "country2", "region2", "city2", new ArrayList<>(),"description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new Location("3", "country3", "region3", "city3", new ArrayList<>(), "description3", LocalDateTime.now(), LocalDateTime.now())
+            )
+    );
+
+    public List<Location> getLocations() {
+        return locations;
+    }
+
+    public void setLocations(List<Location> locations) {
+        this.locations = locations;
     }
 }

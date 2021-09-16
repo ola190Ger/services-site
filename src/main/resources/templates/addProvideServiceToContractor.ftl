@@ -19,16 +19,16 @@
             </br>
             Name:${contractor.name}
             </br>
-            TypeContractorId:
+            ProvideServiceId:
             </br>
-            <#list contractor.typeContractorId as typeContractorId>
-                ${typeContractorId}</br>
+            <#list contractor.providedServicesId as provideServiceId>
+                ${provideServiceId}</br>
             </#list>
         </div>
 
         <div style="margin-top: 50px">
-            <form name="typeContractorsId" action="" method="POST">
-                TypeContractorId:<@spring.formSingleSelect "typeContractor.id" typeContractorsId ""/>
+            <form name="provideServicesId" action="" method="POST">
+                ProvideServicesId:<@spring.formSingleSelect "providedService.id" provideServicesId ""/>
                 <br>
                 <input type="submit" value="Added"/>
             </form>

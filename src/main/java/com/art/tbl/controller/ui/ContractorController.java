@@ -7,9 +7,13 @@ package com.art.tbl.controller.ui;
 */
 
 import com.art.tbl.form.ContractorForm;
-import com.art.tbl.model.Contractor;
-import com.art.tbl.model.TypeContractor;
+import com.art.tbl.model.*;
+import com.art.tbl.service.category.impls.CategoryServiceImpl;
 import com.art.tbl.service.contractor.impls.ContractorServiceImpl;
+import com.art.tbl.service.location.impls.LocationServiceImpl;
+import com.art.tbl.service.providedservice.impls.ProvidedServiceServiceImpl;
+import com.art.tbl.service.reviews.impls.ReviewsServiceImpl;
+import com.art.tbl.service.socialnetwork.impls.SocialNetworkServiceImpl;
 import com.art.tbl.service.typecontractor.impls.TypeContractorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +37,18 @@ public class ContractorController {
 
     @Autowired
     TypeContractorServiceImpl typeContractorService;
+
+    @Autowired
+    ProvidedServiceServiceImpl pSService;
+
+    @Autowired
+    LocationServiceImpl locationService;
+
+    @Autowired
+    SocialNetworkServiceImpl sNService;
+
+    @Autowired
+    ReviewsServiceImpl reviewsService;
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(Model model){
@@ -108,19 +124,119 @@ public class ContractorController {
         Contractor contractor = contractorService.get(id);
         List<String> typeContractorsId = typeContractorService.getall().stream()
                 .map(TypeContractor::getId).collect(Collectors.toList());
+        TypeContractor typeContractor = new TypeContractor();
         model.addAttribute("contractor", contractor);
         model.addAttribute("typeContractorsId", typeContractorsId);
+        model.addAttribute("typeContractor", typeContractor);
         return "addTypeContractorToContractor";
     }
 
     @RequestMapping(value = "/addTypeContractor/{id}", method = RequestMethod.POST)
     public String addTypeContractorToContractor(Model model,
-                                                @ModelAttribute("typeContractorsId") String typeContractorId,
+                                                @ModelAttribute("typeContractor") TypeContractor typeContractor,
                                                 @PathVariable("id") String id)
     {
         Contractor contractor = contractorService.get(id);
-        contractor.getTypeContractorId().add(typeContractorId);
+        contractor.getTypeContractorId().add(typeContractor.getId());
         contractorService.update(contractor);
-        return "addTypeContractorToContractor";
+        return "redirect:/web/contractors/addTypeContractor/{id}";
+    }
+
+   @RequestMapping(value = "/addProvideService/{id}", method = RequestMethod.GET)
+    public String addProvideServiceToContractor(Model model, @PathVariable("id") String id)
+    {
+        Contractor contractor = contractorService.get(id);
+        List<String> provideServicesId = pSService.getAll().stream()
+                .map(ProvidedService::getId).collect(Collectors.toList());
+        ProvidedService providedService = new ProvidedService();
+        model.addAttribute("contractor", contractor);
+        model.addAttribute("provideServicesId", provideServicesId);
+        model.addAttribute("providedService", providedService);
+        return "addProvideServiceToContractor";
+    }
+
+    @RequestMapping(value = "/addProvideService/{id}", method = RequestMethod.POST)
+    public String addProvideServiceToContractor(Model model,
+                                                @ModelAttribute("providedService") ProvidedService providedService,
+                                                @PathVariable("id") String id)
+    {
+        Contractor contractor = contractorService.get(id);
+        contractor.getProvidedServicesId().add(providedService.getId());
+        contractorService.update(contractor);
+        return "redirect:/web/contractors/addProvideService/{id}";
+    }
+
+    @RequestMapping(value = "/addLocation/{id}", method = RequestMethod.GET)
+    public String addLocationToContractor(Model model, @PathVariable("id") String id)
+    {
+        Contractor contractor = contractorService.get(id);
+        List<Location> locCont = locationService.getall().stream().filter(item -> item.getContractorId()
+                .contains(id)).collect(Collectors.toList());
+        List<String> locationsId = locationService.getall().stream()
+                .map(Location::getId).collect(Collectors.toList());
+        Location location = new Location();
+        model.addAttribute("contractor", contractor);
+        model.addAttribute("locationsId", locationsId);
+        model.addAttribute("locCont", locCont);
+        model.addAttribute("location", location);
+        return "addLocationToContractor";
+    }
+
+    @RequestMapping(value = "/addLocation/{id}", method = RequestMethod.POST)
+    public String addLocationToContractor(Model model,
+                                                @ModelAttribute("location") Location location,
+                                                @PathVariable("id") String id)
+    {
+        Contractor contractor = contractorService.get(id);
+        Location locationUp = locationService.get(location.getId());
+        locationUp.getContractorId().add(contractor.getId());
+        locationService.update(locationUp);
+        return "redirect:/web/contractors/addLocation/{id}";
+    }
+
+    @RequestMapping(value = "/addSocialNetwork/{id}", method = RequestMethod.GET)
+    public String addSocialNetworkToContractor(Model model, @PathVariable("id") String id)
+    {
+        Contractor contractor = contractorService.get(id);
+        List<SocialNetwork> socNet = sNService.getall().stream().filter(item -> item.getContractorId()
+                .equals(id)).collect(Collectors.toList());
+        SocialNetwork socialNetwork = new SocialNetwork();
+        model.addAttribute("contractor", contractor);
+        model.addAttribute("socNet", socNet);
+        model.addAttribute("socialNetwork", socialNetwork);
+        return "addSocialNetworkToContractor";
+    }
+
+    @RequestMapping(value = "/addSocialNetwork/{id}", method = RequestMethod.POST)
+    public String addSocialNetworkToContractor(Model model,
+                                          @ModelAttribute("socialNetwork") SocialNetwork socialNetwork,
+                                          @PathVariable("id") String id)
+    {
+        socialNetwork.setContractorId(id);
+        sNService.create(socialNetwork);
+        return "redirect:/web/contractors/addSocialNetwork/{id}";
+    }
+
+    @RequestMapping(value = "/addReviews/{id}", method = RequestMethod.GET)
+    public String addReviewsToContractor(Model model, @PathVariable("id") String id)
+    {
+        Contractor contractor = contractorService.get(id);
+        List<Reviews> reviewsList = reviewsService.getAll().stream().filter(item -> item.getContractorId()
+                .equals(id)).collect(Collectors.toList());
+        Reviews reviews = new Reviews();
+        model.addAttribute("contractor", contractor);
+        model.addAttribute("reviewsList", reviewsList);
+        model.addAttribute("reviews", reviews);
+        return "addReviewsToContractor";
+    }
+
+    @RequestMapping(value = "/addReviews/{id}", method = RequestMethod.POST)
+    public String addReviewsToContractor(Model model,
+                                               @ModelAttribute("reviews") Reviews reviews,
+                                               @PathVariable("id") String id)
+    {
+        reviews.setContractorId(id);
+        reviewsService.create(reviews);
+        return "redirect:/web/contractors/addReviews/{id}";
     }
 }

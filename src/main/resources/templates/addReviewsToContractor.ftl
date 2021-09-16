@@ -19,16 +19,28 @@
             </br>
             Name:${contractor.name}
             </br>
-            TypeContractorId:
+            Reviews:
             </br>
-            <#list contractor.typeContractorId as typeContractorId>
-                ${typeContractorId}</br>
-            </#list>
+
+            <table border="3" bgcolor="#f0f8ff">
+                <tr>
+                    <th>Text</th>
+                    <th>Description</th>
+                </tr>
+                <#list reviewsList as review>
+                    <tr>
+                        <td>${review.text}</td>
+                        <td>${review.description}</td>
+                    </tr>
+                </#list>
+            </table>
         </div>
 
         <div style="margin-top: 50px">
-            <form name="typeContractorsId" action="" method="POST">
-                TypeContractorId:<@spring.formSingleSelect "typeContractor.id" typeContractorsId ""/>
+            <form name="reviews" action="" method="POST">
+                Name:<@spring.formInput "reviews.text" "" "text"/>
+                <br>
+                Description:<@spring.formInput "reviews.description" "" "text"/>
                 <br>
                 <input type="submit" value="Added"/>
             </form>

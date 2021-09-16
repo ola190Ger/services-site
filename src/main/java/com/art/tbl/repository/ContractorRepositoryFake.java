@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -27,6 +28,10 @@ public class ContractorRepositoryFake {
         contractor.setId(id.toString());
         contractor.setCreatedAt(LocalDateTime.now());
         contractor.setUpdatedAt(LocalDateTime.now());
+        if(contractor.getProvidedServicesId() == null)
+            contractor.setProvidedServicesId(new ArrayList<>());
+        if(contractor.getTypeContractorId() == null)
+            contractor.setTypeContractorId(new ArrayList<>());
         data.getContractors().add(contractor);
         return contractor;
     }
