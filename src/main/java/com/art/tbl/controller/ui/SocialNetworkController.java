@@ -47,7 +47,7 @@ public class SocialNetworkController {
     {
         SocialNetwork socialNetwork = snService.get(id);
         model.addAttribute("socialnetwork", socialNetwork);
-        return "editsocialnetwork";
+        return "editSocialNetwork";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
