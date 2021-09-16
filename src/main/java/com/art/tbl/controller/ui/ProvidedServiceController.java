@@ -48,7 +48,7 @@ public class ProvidedServiceController {
     {
         ProvidedService providedService = providedServiceService.get(id);
         model.addAttribute("providedservice", providedService);
-        return "editprovidedservice";
+        return "editProvidedService";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
@@ -65,7 +65,7 @@ public class ProvidedServiceController {
     {
         ProvidedService providedService = new ProvidedService();
         model.addAttribute("providedservice", providedService);
-        return "addprovidedservice";
+        return "addProvidedService";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
