@@ -40,7 +40,7 @@
 
 </div>
 
-<a href="/web/socialnetwork/add">Add new SocialNetwork</a>
+<a href="/web/socialnetwork/add">Add SocialNetwork</a>
 
 
 </body>
