@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/providedservice")
-public class ProvidedServiceController {
+public class ProvidedServiceRESTController {
 
     @Autowired
     ProvidedServiceServiceImpl service;

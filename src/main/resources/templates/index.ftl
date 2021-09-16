@@ -35,7 +35,9 @@
 <a href="<@spring.url '/web/socialnetwork/list'/>">SocialNetworks List</a>
 </br>
 </br>
-<a href="<@spring.url '/web/contractors/list'/>">Contractor List</a>
+<a href="<@spring.url '/web/contractors/list'/>">Contractor List</a></br>
+</br>
+<a href="<@spring.url '/web/providedservice/list'/>">ProvidedService List</a>
 
 
 </body>
