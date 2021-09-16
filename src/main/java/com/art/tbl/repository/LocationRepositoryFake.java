@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -24,12 +25,12 @@ public class LocationRepositoryFake {
     Data data;
 
     public Location create(Location location){
-//        location.setContractorId(data.getContractor().stream()
-//                .map(Contractor::getId).collect(Collectors.toList()));
         UUID id = UUID.randomUUID();
         location.setId(id.toString());
         location.setCreatedAt(LocalDateTime.now());
         location.setUpdatedAt(LocalDateTime.now());
+        if(location.getContractorId() == null)
+            location.setContractorId(new ArrayList<>());
         data.getLocations().add(location);
         return location;
     }

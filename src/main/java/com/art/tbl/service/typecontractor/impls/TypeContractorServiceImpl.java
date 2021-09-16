@@ -8,14 +8,14 @@ package com.art.tbl.service.typecontractor.impls;
 
 import com.art.tbl.model.TypeContractor;
 import com.art.tbl.repository.TypeContractorRepositoryFace;
-import com.art.tbl.service.typecontractor.interfaces.ITypeContractor;
+import com.art.tbl.service.typecontractor.interfaces.ITypeContractorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TypeContractorImpl implements ITypeContractor {
+public class TypeContractorServiceImpl implements ITypeContractorService {
     @Autowired
     TypeContractorRepositoryFace repo;
 

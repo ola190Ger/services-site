@@ -10,7 +10,7 @@ import com.art.tbl.model.TypeContractor;
 
 import java.util.List;
 
-public interface ITypeContractor {
+public interface ITypeContractorService {
     TypeContractor create(TypeContractor typeContractor);
     TypeContractor get(String id);
     List<TypeContractor> getall();
