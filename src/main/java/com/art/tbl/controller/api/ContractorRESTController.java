@@ -18,7 +18,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/contractor")
-public class ContractorController {
+public class ContractorRESTController {
     @Autowired
     ContractorServiceImpl service;
 

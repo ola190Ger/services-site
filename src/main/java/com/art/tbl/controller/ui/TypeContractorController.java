@@ -7,7 +7,7 @@ package com.art.tbl.controller.ui;
 */
 
 import com.art.tbl.model.TypeContractor;
-import com.art.tbl.service.typecontractor.impls.TypeContractorImpl;
+import com.art.tbl.service.typecontractor.impls.TypeContractorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class TypeContractorController {
 
     @Autowired
-    TypeContractorImpl typeContractorService;
+    TypeContractorServiceImpl typeContractorService;
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(Model model){

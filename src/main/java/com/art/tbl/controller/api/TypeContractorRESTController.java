@@ -7,7 +7,7 @@ package com.art.tbl.controller.api;
 */
 
 import com.art.tbl.model.TypeContractor;
-import com.art.tbl.service.typecontractor.impls.TypeContractorImpl;
+import com.art.tbl.service.typecontractor.impls.TypeContractorServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,7 +20,7 @@ import java.util.List;
 @RequestMapping("/api/typecontractor")
 public class TypeContractorRESTController {
     @Autowired
-    TypeContractorImpl service;
+    TypeContractorServiceImpl service;
 
     @RequestMapping("/getall")
     public List<TypeContractor> getall()
