@@ -7,6 +7,7 @@ package com.art.tbl.controller.api;
 */
 
 
+import com.art.tbl.model.Reviews;
 import com.art.tbl.model.SocialNetwork;
 import com.art.tbl.service.socialnetwork.impls.SocialNetworkServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/socialnetwork")
-public class SocialNetworkController {
+public class SocialNetworkRESTController {
     @Autowired
     SocialNetworkServiceImpl service;
 
