@@ -36,6 +36,9 @@
 </br>
 </br>
 <a href="<@spring.url '/web/contractors/list'/>">Contractor List</a>
+</br>
+</br>
+<a href="<@spring.url '/web/images/list'/>">Image List</a>
 
 
 </body>

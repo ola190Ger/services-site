@@ -178,4 +178,23 @@ public class Data {
     public void setLocations(List<Location> locations) {
         this.locations = locations;
     }
+
+    private List<Image> images = new ArrayList<>(
+            Arrays.asList(
+                    new Image("1", "name", "1", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fhu%2Fsearch%2Fimages%3Fk%3Ddefault%2Bprofile%2Bpicture&psig=AOvVaw1mAX0_PPveJfr3Opvq_04s&ust=1631908288954000&source=images&cd=vfe&ved=2ahUKEwi5v5ygooTzAhXtvKQKHRTZD2cQjRx6BAgAEAk",
+                            "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Image("2", "name2", "2", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fru.depositphotos.com%2Fvector-images%2Fprofile-picture.html&psig=AOvVaw0B2JWI1Q0UlCCHQEVXSmRc&ust=1631908284356000&source=images&cd=vfe&ved=2ahUKEwjO8IOeooTzAhUFLOwKHYeEDs4QjRx6BAgAEAk",
+                            "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Image("3", "name3", "3", "https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fhu%2Fsearch%2Fimages%3Fk%3Ddefault%2Bprofile%2Bpicture&psig=AOvVaw1mAX0_PPveJfr3Opvq_04s&ust=1631908288954000&source=images&cd=vfe&ved=2ahUKEwi5v5ygooTzAhXtvKQKHRTZD2cQjRx6BAgAEAk",
+                            "description", LocalDateTime.now(), LocalDateTime.now())
+            )
+    );
+
+    public List<Image> getImages() {
+        return images;
+    }
+
+    public void setImages(List<Image> images) {
+        this.images = images;
+    }
 }
