@@ -30,7 +30,9 @@
 </br>
 </br>
 <a href="<@spring.url '/web/reviews/list'/>">Reviews List</a>
-
+</br>
+</br>
+<a href="<@spring.url '/web/socialnetwork/list'/>">SocialNetworks List</a>
 
 </body>
 </html>
