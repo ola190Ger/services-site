@@ -47,7 +47,7 @@ public class SocialNetworkController {
     {
         SocialNetwork socialNetwork = snService.get(id);
         model.addAttribute("socialnetwork", socialNetwork);
-        return "editsocialnetwork";
+        return "editSocialNetwork";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
@@ -64,7 +64,7 @@ public class SocialNetworkController {
     {
         SocialNetwork socialNetwork = new SocialNetwork();
         model.addAttribute("socialNetwork", socialNetwork);
-        return "addsocialnetwork";
+        return "addSocialNetwork";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
