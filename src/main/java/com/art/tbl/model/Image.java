@@ -14,27 +14,28 @@ public class Image {
     private String id;
     private String name;
     private String contractorId;
+    private String imageUrl;
+    //private java.awt.Image image;
     private String description;
-    private java.awt.Image image;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
     public Image() {
     }
 
-    public Image(String name, String contractorId, String description, java.awt.Image image) {
+    public Image(String name, String contractorId, String imageUrl, String description) {
         this.name = name;
         this.contractorId = contractorId;
+        this.imageUrl = imageUrl;
         this.description = description;
-        this.image = image;
     }
 
-    public Image(String id, String name, String contractorId, String description, java.awt.Image image, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public Image(String id, String name, String contractorId, String imageUrl, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.contractorId = contractorId;
+        this.imageUrl = imageUrl;
         this.description = description;
-        this.image = image;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -71,12 +72,12 @@ public class Image {
         this.description = description;
     }
 
-    public java.awt.Image getImage() {
-        return image;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage(java.awt.Image image) {
-        this.image = image;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public LocalDateTime getCreatedAt() {
@@ -117,7 +118,7 @@ public class Image {
                 ", name='" + name + '\'' +
                 ", contractorId='" + contractorId + '\'' +
                 ", description='" + description + '\'' +
-                ", image=" + image +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
