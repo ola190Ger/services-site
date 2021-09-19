@@ -1,9 +1,9 @@
 package com.art.tbl.controller.ui;
 /*
 @author ArtemFrunze
-@class indexController
-@date 14.09.2021
-@time 19:27 
+@class IndexController
+@date 19.09.2021
+@time 17:45 
 */
 
 import org.springframework.stereotype.Controller;
@@ -13,11 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @RequestMapping()
 @Controller()
-public class indexController {
-
-    @RequestMapping(value = {"/admin"}, method = RequestMethod.GET)
+public class IndexController {
+    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public String index(Model model){
         model.addAttribute("message", "Hello world!");
-        return "admin";
+        return "index";
     }
 }
