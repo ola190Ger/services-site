@@ -17,7 +17,7 @@ public class ProvidedService {
     private String id;
     private String name;
     private List<String> contractorId;
-    private List<String> categoryId;
+    private String categoryId;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -25,14 +25,14 @@ public class ProvidedService {
     public ProvidedService() {
     }
 
-    public ProvidedService(String name, List<String> contractorId, List<String> categoryId, String description) {
+    public ProvidedService(String name, List<String> contractorId, String categoryId, String description) {
         this.name = name;
         this.contractorId = contractorId;
         this.categoryId = categoryId;
         this.description = description;
     }
 
-    public ProvidedService(String id, String name, List<String> contractorId, List<String> categoryId, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
+    public ProvidedService(String id, String name, List<String> contractorId, String categoryId, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.contractorId = contractorId;
@@ -66,11 +66,11 @@ public class ProvidedService {
         this.contractorId = contractorId;
     }
 
-    public List<String> getCategoryId() {
+    public String getCategoryId() {
         return categoryId;
     }
 
-    public void setCategoryId(List<String> categoryId) {
+    public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
     }
 

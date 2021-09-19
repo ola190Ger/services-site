@@ -40,10 +40,10 @@ public class Data {
 
     private List<ProvidedService> providedServices = new ArrayList<>(
             Arrays.asList(
-                    new ProvidedService("1", "providedService1", null, new ArrayList<>(),"description", LocalDateTime.now(), LocalDateTime.now()),
-                    new ProvidedService("2", "providedService2", null, new ArrayList<>(),"description", LocalDateTime.now(), LocalDateTime.now()),
-                    new ProvidedService("3", "providedService3", null, new ArrayList<>(), "description", LocalDateTime.now(), LocalDateTime.now()),
-                    new ProvidedService("4", "providedService4", null, this.categories.stream().map(Category::getId).collect(Collectors.toList()), "description", LocalDateTime.now(), LocalDateTime.now())
+                    new ProvidedService("1", "providedService1", null, null,"description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("2", "providedService2", null, null,"description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("3", "providedService3", null, null, "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new ProvidedService("4", "providedService4", null, null, "description", LocalDateTime.now(), LocalDateTime.now())
             )
     );
     public List<ProvidedService> getProvidedServices(){

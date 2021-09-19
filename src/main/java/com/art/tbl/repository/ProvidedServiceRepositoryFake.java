@@ -25,8 +25,6 @@ public class ProvidedServiceRepositoryFake {
         providedService.setId(id.toString());
         providedService.setCreatedAt(LocalDateTime.now());
         providedService.setUpdatedAt(LocalDateTime.now());
-        if(providedService.getCategoryId() == null)
-            providedService.setCategoryId(new ArrayList<>());
         if(providedService.getContractorId() == null)
             providedService.setContractorId(new ArrayList<>());
         data.getProvidedServices().add(providedService);
