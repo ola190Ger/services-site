@@ -6,12 +6,18 @@ package com.art.tbl.service.image.impls;
 @time 23:00 
 */
 
+import com.art.tbl.dto.CategoryDTO;
+import com.art.tbl.dto.ImageDTO;
+import com.art.tbl.mapper.CategoryMapper;
+import com.art.tbl.mapper.ImageMapper;
+import com.art.tbl.model.Category;
 import com.art.tbl.model.Image;
 import com.art.tbl.repository.ImageRepositoryFake;
 import com.art.tbl.service.image.interfaces.IImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,27 +26,31 @@ public class ImageServiceImpl implements IImageService {
     ImageRepositoryFake repo;
 
     @Override
-    public Image create(Image image) {
-        return repo.create(image);
+    public ImageDTO create(ImageDTO image) {
+        return ImageMapper.IMAGE_MAPPER.fromImageDTO(repo.create(ImageMapper.IMAGE_MAPPER.toImage(image)));
     }
 
     @Override
-    public Image get(String id) {
-        return repo.get(id);
+    public ImageDTO get(String id) {
+        return ImageMapper.IMAGE_MAPPER.fromImageDTO(repo.get(id));
     }
 
     @Override
-    public List<Image> getAll() {
-        return repo.getAll();
+    public List<ImageDTO> getAll() {
+        List<ImageDTO> imageDTOList = new ArrayList<>();
+        for (Image image : repo.getAll()){
+            imageDTOList.add(ImageMapper.IMAGE_MAPPER.fromImageDTO(image));
+        }
+        return imageDTOList;
     }
 
     @Override
-    public Image update(Image image) {
-        return repo.update(image);
+    public ImageDTO update(ImageDTO image) {
+        return ImageMapper.IMAGE_MAPPER.fromImageDTO(repo.update(ImageMapper.IMAGE_MAPPER.toImage(image)));
     }
 
     @Override
-    public Image delete(String id) {
-        return repo.delete(id);
+    public ImageDTO delete(String id) {
+        return ImageMapper.IMAGE_MAPPER.fromImageDTO(repo.delete(id));
     }
 }

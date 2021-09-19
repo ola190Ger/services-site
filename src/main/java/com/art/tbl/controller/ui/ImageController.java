@@ -6,6 +6,7 @@ package com.art.tbl.controller.ui;
 @time 23:04 
 */
 
+import com.art.tbl.dto.ImageDTO;
 import com.art.tbl.model.Image;
 import com.art.tbl.service.image.impls.ImageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,14 +45,14 @@ public class ImageController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editImage(Model model, @PathVariable("id") String id)
     {
-        Image image = imageService.get(id);
+        ImageDTO image = imageService.get(id);
         model.addAttribute("image", image);
         return "editImage";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editImage(Model model,
-                               @ModelAttribute("image") Image image,
+                               @ModelAttribute("image") ImageDTO image,
                                @PathVariable("id") String id)
     {
         imageService.update(image);
@@ -61,14 +62,14 @@ public class ImageController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addImage(Model model)
     {
-        Image image = new Image();
+        ImageDTO image = new ImageDTO();
         model.addAttribute("image", image);
         return "addImage";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addImage(Model model,
-                              @ModelAttribute("image") Image image)
+                              @ModelAttribute("image") ImageDTO image)
     {
         imageService.create(image);
         return "redirect:/web/images/list";

@@ -13,8 +13,17 @@ public class ImageDTO {
     private String contractorId;
     private String imageUrl;
     private String description;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
+    public ImageDTO() {
+    }
+
+    public ImageDTO(String id, String name, String contractorId, String imageUrl, String description) {
+        this.id = id;
+        this.name = name;
+        this.contractorId = contractorId;
+        this.imageUrl = imageUrl;
+        this.description = description;
+    }
 
     public String getId() {
         return id;
@@ -56,19 +65,4 @@ public class ImageDTO {
         this.description = description;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 }

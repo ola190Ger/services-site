@@ -6,6 +6,7 @@ package com.art.tbl.controller.api;
 @time 19:36 
 */
 
+import com.art.tbl.dto.ImageDTO;
 import com.art.tbl.model.Image;
 import com.art.tbl.service.image.impls.ImageServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,27 +25,27 @@ public class ImageRESTController {
     ImageServiceImpl service;
 
     @RequestMapping("/getall")
-    public List<Image> getAll() {
+    public List<ImageDTO> getAll() {
         return service.getAll();
     }
 
     @RequestMapping("/get/{id}")
-    public Image get(@PathVariable("id") String id) {
+    public ImageDTO get(@PathVariable("id") String id) {
         return service.get(id);
     }
 
     @PostMapping("/create")
-    public Image create(@RequestBody Image image) {
+    public ImageDTO create(@RequestBody ImageDTO image) {
         return service.create(image);
     }
 
     @PostMapping("update")
-    public Image update(@RequestBody Image image) {
+    public ImageDTO update(@RequestBody ImageDTO image) {
         return service.update(image);
     }
 
     @RequestMapping("/delete/{id}")
-    public Image delete(@PathVariable("id") String id) {
+    public ImageDTO delete(@PathVariable("id") String id) {
         return service.delete(id);
     }
 }

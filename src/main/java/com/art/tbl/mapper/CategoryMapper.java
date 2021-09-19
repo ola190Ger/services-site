@@ -11,7 +11,7 @@ import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper/*(uses = {Category.class})*/
+@Mapper(uses = {Category.class})
 public interface CategoryMapper {
     CategoryMapper CATEGORY_MAPPER = Mappers.getMapper(CategoryMapper.class);
 
