@@ -6,14 +6,15 @@
     <title>Title</title>
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 <body>
-<a href="/"><h2>Home</h2></a>
-<h3>Contractor list</h3>
+<a href="/admin">Home</a>
+<h3 style="text-align: center">Contractor list</h3>
 <br>
-<div>
+<div class="container">
 
-    <table border="3" bgcolor="#f0f8ff">
+    <table class="table">
         <tr>
             <th>Name</th>
             <th>Phone</th>
@@ -24,6 +25,7 @@
             <th>Location</th>
             <th>Social Network</th>
             <th>Reviews</th>
+            <th>Image</th>
             <th>Delete</th>
             <th>Edit</th>
         </tr>
@@ -37,20 +39,21 @@
                 </td>
                 <td>${contractor.birthday}</td>
                 <td>${contractor.description}</td>
-                <td><a href="/web/contractors/addTypeContractor/${contractor.id}">Add TypeContractor</a></td>
-                <td><a href="/web/contractors/addProvideService/${contractor.id}">Add ProvideService</a></td>
-                <td><a href="/web/contractors/addLocation/${contractor.id}">Add Location</a></td>
-                <td><a href="/web/contractors/addSocialNetwork/${contractor.id}">Add Social Network</a></td>
-                <td><a href="/web/contractors/addReviews/${contractor.id}">Add Reviews</a></td>
-                <td><a href="/web/contractors/delete/${contractor.id}">Delete</a></td>
-                <td><a href="/web/contractors/edit/${contractor.id}">Edit</a></td>
+                <td><a class="btn btn-primary" href="/web/contractors/addTypeContractor/${contractor.id}">Add TypeContractor</a></td>
+                <td><a class="btn btn-primary" href="/web/contractors/addProvideService/${contractor.id}">Add ProvideService</a></td>
+                <td><a class="btn btn-primary" href="/web/contractors/addLocation/${contractor.id}">Add Location</a></td>
+                <td><a class="btn btn-primary" href="/web/contractors/addSocialNetwork/${contractor.id}">Add Social Network</a></td>
+                <td><a class="btn btn-primary" href="/web/contractors/addReviews/${contractor.id}">Add Reviews</a></td>
+                <td><a class="btn btn-primary" href="/web/contractors/addImage/${contractor.id}">Add Image</a></td>
+                <td><a class="btn btn btn-danger" href="/web/contractors/delete/${contractor.id}">Delete</a></td>
+                <td><a class="btn btn btn-info" href="/web/contractors/edit/${contractor.id}">Edit</a></td>
             </tr>
         </#list>
     </table>
-
+    <a class="btn btn-outline-success" href="/web/contractors/add">Add new Contractor</a>
 </div>
 
-<a href="/web/contractors/add">Add new Contractor</a>
+
 
 
 </body>

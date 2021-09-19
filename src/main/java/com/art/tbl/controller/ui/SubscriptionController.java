@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @RequestMapping("/web/subscriptions")
@@ -33,10 +32,10 @@ public class SubscriptionController {
     @Autowired
     ContractorServiceImpl contractorService;
 
-    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/admin"}, method = RequestMethod.GET)
     public String index(Model model){
         model.addAttribute("message", "Hello world!");
-        return "index";
+        return "admin";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)

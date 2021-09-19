@@ -6,7 +6,6 @@ package com.art.tbl.controller.ui;
 @time 22:27 
 */
 
-import com.art.tbl.model.Location;
 import com.art.tbl.model.User;
 import com.art.tbl.service.user.impls.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +22,10 @@ public class UserController {
     @Autowired
     UserServiceImpl userService;
 
-    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/admin"}, method = RequestMethod.GET)
     public String index(Model model){
         model.addAttribute("message", "Hello world!");
-        return "index";
+        return "admin";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)

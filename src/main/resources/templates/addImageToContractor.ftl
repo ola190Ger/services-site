@@ -10,29 +10,25 @@
 </head>
 <body>
 <a href="/web/contractors/list">Back</a>
-
 <div class="container">
+
     <fieldset>
-        <legend>Add TypeContractor to Contractor</legend>
+        <legend>Add Image to Contractor</legend>
 
         <div>
             Contractor:
             </br>
             Name:${contractor.name}
             </br>
-            <div class="add-component-table">
-            ProvideServiceId:
+            Image:
             </br>
-                <#list contractor.providedServicesId as provideServiceId>
-                    ${provideServiceId}</br>
-                </#list>
-            </div>
+            <img src="${contractorImage.imageUrl}" style="max-width:100px;max-height:100px;">
         </div>
 
         <div style="margin-top: 50px">
-            <form name="provideServicesId" action="" method="POST">
+            <form name="contractorImage" action="" method="POST">
                 <div class="block-input">
-                    ProvideServicesId:<@spring.formSingleSelect "providedService.id" provideServicesId ""/>
+                    Url:<@spring.formInput "contractorImage.imageUrl" "" "text"/>
                 </div>
                 <input type="submit" class="block-input_btn btn btn-primary" value="Added"/>
             </form>

@@ -7,7 +7,6 @@ package com.art.tbl.controller.ui;/*
 
 
 import com.art.tbl.model.SocialNetwork;
-import com.art.tbl.service.reviews.impls.ReviewsServiceImpl;
 import com.art.tbl.service.socialnetwork.impls.SocialNetworkServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,10 +22,10 @@ public class SocialNetworkController {
     @Autowired
     SocialNetworkServiceImpl snService;
 
-    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/admin"}, method = RequestMethod.GET)
     public String index(Model model){
         model.addAttribute("message", "Hello world!");
-        return "index";
+        return "admin";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)

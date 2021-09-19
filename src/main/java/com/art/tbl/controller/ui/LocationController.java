@@ -6,9 +6,7 @@ package com.art.tbl.controller.ui;
 @time 21:44 
 */
 
-import com.art.tbl.model.Contractor;
 import com.art.tbl.model.Location;
-import com.art.tbl.service.contractor.impls.ContractorServiceImpl;
 import com.art.tbl.service.location.impls.LocationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,10 +22,10 @@ public class LocationController {
     @Autowired
     LocationServiceImpl locationService;
 
-    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/admin"}, method = RequestMethod.GET)
     public String index(Model model){
         model.addAttribute("message", "Hello world!");
-        return "index";
+        return "admin";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)

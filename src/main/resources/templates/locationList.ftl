@@ -6,14 +6,15 @@
     <title>Title</title>
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 </head>
 <body>
-<a href="/"><h2>Home</h2></a>
-<h3>Location list</h3>
+<a href="/admin">Home</a>
+<h3 style="text-align: center">Location list</h3>
 <br>
-<div>
+<div class="container">
 
-    <table border="3" bgcolor="#f0f8ff">
+    <table class="table">
         <tr>
             <th>Country</th>
             <th>Region</th>
@@ -28,15 +29,15 @@
                 <td>${location.region}</td>
                 <td>${location.city}</td>
                 <td>${location.description}</td>
-                <td><a href="/web/locations/delete/${location.id}">Delete</a></td>
-                <td><a href="/web/locations/edit/${location.id}">Edit</a></td>
+                <td><a class="btn btn-danger" href="/web/locations/delete/${location.id}">Delete</a></td>
+                <td><a class="btn btn-info" href="/web/locations/edit/${location.id}">Edit</a></td>
             </tr>
         </#list>
     </table>
-
+    <a class="btn btn-outline-success" href="/web/locations/add">Add new Location</a>
 </div>
 
-<a href="/web/locations/add">Add new Location</a>
+
 
 
 </body>

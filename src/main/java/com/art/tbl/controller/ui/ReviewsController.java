@@ -22,10 +22,10 @@ public class ReviewsController {
     @Autowired
     ReviewsServiceImpl reviewsService;
 
-    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/admin"}, method = RequestMethod.GET)
     public String index(Model model){
         model.addAttribute("message", "Hello world!");
-        return "index";
+        return "admin";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)

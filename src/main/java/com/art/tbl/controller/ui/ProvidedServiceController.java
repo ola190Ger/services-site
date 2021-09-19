@@ -6,9 +6,7 @@ package com.art.tbl.controller.ui;/*
 */
 
 import com.art.tbl.model.ProvidedService;
-import com.art.tbl.model.Reviews;
 import com.art.tbl.service.providedservice.impls.ProvidedServiceServiceImpl;
-import com.art.tbl.service.reviews.impls.ReviewsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,10 +22,10 @@ public class ProvidedServiceController {
     @Autowired
     ProvidedServiceServiceImpl providedServiceService;
 
-    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/admin"}, method = RequestMethod.GET)
     public String index(Model model){
         model.addAttribute("message", "Hello world!");
-        return "index";
+        return "admin";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)

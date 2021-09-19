@@ -8,8 +8,8 @@ package com.art.tbl.controller.ui;
 
 import com.art.tbl.form.ContractorForm;
 import com.art.tbl.model.*;
-import com.art.tbl.service.category.impls.CategoryServiceImpl;
 import com.art.tbl.service.contractor.impls.ContractorServiceImpl;
+import com.art.tbl.service.image.impls.ImageServiceImpl;
 import com.art.tbl.service.location.impls.LocationServiceImpl;
 import com.art.tbl.service.providedservice.impls.ProvidedServiceServiceImpl;
 import com.art.tbl.service.reviews.impls.ReviewsServiceImpl;
@@ -50,10 +50,13 @@ public class ContractorController {
     @Autowired
     ReviewsServiceImpl reviewsService;
 
-    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
+    @Autowired
+    ImageServiceImpl imageService;
+
+    @RequestMapping(value = {"/", "/admin"}, method = RequestMethod.GET)
     public String index(Model model){
         model.addAttribute("message", "Hello world!");
-        return "index";
+        return "admin";
     }
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
@@ -238,5 +241,28 @@ public class ContractorController {
         reviews.setContractorId(id);
         reviewsService.create(reviews);
         return "redirect:/web/contractors/addReviews/{id}";
+    }
+
+    @RequestMapping(value = "/addImage/{id}", method = RequestMethod.GET)
+    public String addImageToContractor(Model model, @PathVariable("id") String id)
+    {
+        Contractor contractor = contractorService.get(id);
+        Image contractorImage = imageService.getAll().stream().filter(item -> item.getContractorId()
+        .equals(id)).findFirst().get();
+        model.addAttribute("contractor", contractor);
+        model.addAttribute("contractorImage", contractorImage);
+        return "addImageToContractor";
+    }
+
+    @RequestMapping(value = "/addImage/{id}", method = RequestMethod.POST)
+    public String addImageToContractor(Model model,
+                                         @ModelAttribute("contractorImage") Image image,
+                                         @PathVariable("id") String id)
+    {
+        Image contractorImage = imageService.getAll().stream().filter(item -> item.getContractorId()
+                .equals(id)).findFirst().get();
+        contractorImage.setImageUrl(image.getImageUrl());
+        imageService.update(contractorImage);
+        return "redirect:/web/contractors/addImage/{id}";
     }
 }
