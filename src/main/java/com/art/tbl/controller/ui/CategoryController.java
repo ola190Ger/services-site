@@ -6,6 +6,7 @@ package com.art.tbl.controller.ui;
 @time 19:07 
 */
 
+import com.art.tbl.dto.CategoryDTO;
 import com.art.tbl.model.Category;
 import com.art.tbl.service.category.impls.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,14 +45,14 @@ public class CategoryController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editCategory(Model model, @PathVariable("id") String id)
     {
-        Category category = categoryService.get(id);
+        CategoryDTO category = categoryService.get(id);
         model.addAttribute("category", category);
         return "editCategory";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editCategory(Model model,
-                                     @ModelAttribute("category") Category category,
+                                     @ModelAttribute("category") CategoryDTO category,
                                      @PathVariable("id") String id)
     {
         categoryService.update(category);
@@ -61,14 +62,14 @@ public class CategoryController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addCategory(Model model)
     {
-        Category category = new Category();
+        CategoryDTO category = new CategoryDTO();
         model.addAttribute("category", category);
         return "addCategory";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addCategory(Model model,
-                                    @ModelAttribute("category") Category category)
+                                    @ModelAttribute("category") CategoryDTO category)
     {
         categoryService.create(category);
         return "redirect:/web/categories/list";

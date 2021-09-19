@@ -6,6 +6,7 @@ package com.art.tbl.controller.api;
 @time 20:13 
 */
 
+import com.art.tbl.dto.CategoryDTO;
 import com.art.tbl.model.Category;
 import com.art.tbl.service.category.impls.CategoryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,30 +21,30 @@ public class CategoryRESTController {
     CategoryServiceImpl service;
 
     @RequestMapping("/getall")
-    public List<Category> getAll() {
+    public List<CategoryDTO> getAll() {
         return service.getAll();
     }
 
     @RequestMapping("/get/{id}")
-    public Category get(@PathVariable("id") String id)
+    public CategoryDTO get(@PathVariable("id") String id)
     {
         return service.get(id);
     }
 
     @PostMapping("/create")
-    public Category create(@RequestBody Category category)
+    public CategoryDTO create(@RequestBody CategoryDTO category)
     {
         return service.create(category);
     }
 
     @PostMapping("update")
-    public Category update(@RequestBody Category category)
+    public CategoryDTO update(@RequestBody CategoryDTO category)
     {
         return  service.update(category);
     }
 
     @RequestMapping("/delete/{id}")
-    public Category delete(@PathVariable("id") String id)
+    public CategoryDTO delete(@PathVariable("id") String id)
     {
         return service.delete(id);
     }

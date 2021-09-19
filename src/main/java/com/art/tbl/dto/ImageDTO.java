@@ -1,16 +1,17 @@
-package com.art.tbl.DTO;/*
+package com.art.tbl.dto;/*
 @author OlgaGereliuk
-@class ReviewsDTO
+@class ImageDTO
 @Date 19.09.2021
-@Time 16:23
+@Time 16:20
 */
 
 import java.time.LocalDateTime;
 
-public class ReviewsDTO {
+public class ImageDTO {
     private String id;
-    private String text;
+    private String name;
     private String contractorId;
+    private String imageUrl;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -23,12 +24,12 @@ public class ReviewsDTO {
         this.id = id;
     }
 
-    public String getText() {
-        return text;
+    public String getName() {
+        return name;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getContractorId() {
@@ -37,6 +38,14 @@ public class ReviewsDTO {
 
     public void setContractorId(String contractorId) {
         this.contractorId = contractorId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getDescription() {

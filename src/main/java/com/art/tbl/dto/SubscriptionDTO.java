@@ -1,4 +1,4 @@
-package com.art.tbl.DTO;/*
+package com.art.tbl.dto;/*
 @author OlgaGereliuk
 @class SubscriptionDTO
 @Date 19.09.2021

@@ -1,4 +1,4 @@
-package com.art.tbl.DTO;/*
+package com.art.tbl.dto;/*
 @author OlgaGereliuk
 @class CategoryDTO
 @Date 19.09.2021
@@ -9,6 +9,15 @@ public class CategoryDTO {
     private String id;
     private String name;
     private String description;
+
+    public CategoryDTO() {
+    }
+
+    public CategoryDTO(String id, String name, String description) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+    }
 
     public String getId() {
         return id;

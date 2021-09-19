@@ -6,14 +6,15 @@ package com.art.tbl.service.category.interfaces;
 @time 18:41 
 */
 
+import com.art.tbl.dto.CategoryDTO;
 import com.art.tbl.model.Category;
 
 import java.util.List;
 
 public interface ICategoryService {
-    Category create(Category category);
-    Category get(String id);
-    Category update(Category category);
-    Category delete(String id);
-    List<Category> getAll();
+    CategoryDTO create(CategoryDTO category);
+    CategoryDTO get(String id);
+    CategoryDTO update(CategoryDTO category);
+    CategoryDTO delete(String id);
+    List<CategoryDTO> getAll();
 }

@@ -1,18 +1,19 @@
-package com.art.tbl.DTO;/*
+package com.art.tbl.dto;/*
 @author OlgaGereliuk
-@class ProvidedServiceDTO
+@class ContractorDTO
 @Date 19.09.2021
-@Time 16:22
+@Time 16:17
 */
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class ProvidedServiceDTO {
+public class ContractorDTO {
     private String id;
     private String name;
-    private List<String> contractorId;
-    private List<String> categoryId;
+    private List<String> phone;
+    private LocalDate birthday;
     private String description;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
@@ -33,20 +34,20 @@ public class ProvidedServiceDTO {
         this.name = name;
     }
 
-    public List<String> getContractorId() {
-        return contractorId;
+    public List<String> getPhone() {
+        return phone;
     }
 
-    public void setContractorId(List<String> contractorId) {
-        this.contractorId = contractorId;
+    public void setPhone(List<String> phone) {
+        this.phone = phone;
     }
 
-    public List<String> getCategoryId() {
-        return categoryId;
+    public LocalDate getBirthday() {
+        return birthday;
     }
 
-    public void setCategoryId(List<String> categoryId) {
-        this.categoryId = categoryId;
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
     }
 
     public String getDescription() {
