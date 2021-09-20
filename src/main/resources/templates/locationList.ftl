@@ -18,6 +18,7 @@
             <th>Country</th>
             <th>Region</th>
             <th>City</th>
+            <th>Contractors</th>
             <th>Description</th>
             <th>Delete</th>
             <th>Edit</th>
@@ -27,6 +28,10 @@
                 <td>${location.country}</td>
                 <td>${location.region}</td>
                 <td>${location.city}</td>
+                <td>                    <#list location.contractorId as cId>
+                                        ${cId}
+                                        </#list>
+                </td>
                 <td>${location.description}</td>
                 <td><a href="/web/locations/delete/${location.id}">Delete</a></td>
                 <td><a href="/web/locations/edit/${location.id}">Edit</a></td>

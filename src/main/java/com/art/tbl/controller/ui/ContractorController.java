@@ -6,6 +6,7 @@ package com.art.tbl.controller.ui;
 @time 19:21 
 */
 
+import com.art.tbl.dto.LocationDTO;
 import com.art.tbl.form.ContractorForm;
 import com.art.tbl.model.*;
 import com.art.tbl.service.category.impls.CategoryServiceImpl;
@@ -170,10 +171,10 @@ public class ContractorController {
     public String addLocationToContractor(Model model, @PathVariable("id") String id)
     {
         Contractor contractor = contractorService.get(id);
-        List<Location> locCont = locationService.getall().stream().filter(item -> item.getContractorId()
+        List<LocationDTO> locCont = locationService.getall().stream().filter(item -> item.getContractorId()
                 .contains(id)).collect(Collectors.toList());
         List<String> locationsId = locationService.getall().stream()
-                .map(Location::getId).collect(Collectors.toList());
+                .map(LocationDTO::getId).collect(Collectors.toList());
         Location location = new Location();
         model.addAttribute("contractor", contractor);
         model.addAttribute("locationsId", locationsId);
@@ -188,7 +189,7 @@ public class ContractorController {
                                                 @PathVariable("id") String id)
     {
         Contractor contractor = contractorService.get(id);
-        Location locationUp = locationService.get(location.getId());
+        LocationDTO locationUp = locationService.get(location.getId());
         locationUp.getContractorId().add(contractor.getId());
         locationService.update(locationUp);
         return "redirect:/web/contractors/addLocation/{id}";

@@ -6,6 +6,7 @@ package com.art.tbl.controller.ui;
 @time 21:44 
 */
 
+import com.art.tbl.dto.LocationDTO;
 import com.art.tbl.model.Contractor;
 import com.art.tbl.model.Location;
 import com.art.tbl.service.contractor.impls.ContractorServiceImpl;
@@ -46,14 +47,14 @@ public class LocationController {
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
     public String editLocation(Model model, @PathVariable("id") String id)
     {
-        Location location = locationService.get(id);
+        LocationDTO location = locationService.get(id);
         model.addAttribute("location", location);
         return "editLocation";
     }
 
     @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
     public String editLocation(Model model,
-                                   @ModelAttribute("location") Location location,
+                                   @ModelAttribute("location") LocationDTO location,
                                    @PathVariable("id") String id)
     {
         locationService.update(location);
@@ -63,7 +64,7 @@ public class LocationController {
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String addLocation(Model model)
     {
-        Location location = new Location();
+        LocationDTO location = new LocationDTO();
 //        List<String> contractorId = contractorService.getAll().stream()
 //                .map(Contractor::getId).collect(Collectors.toList());
         model.addAttribute("location", location);
@@ -73,7 +74,7 @@ public class LocationController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String addLocation(Model model,
-                                  @ModelAttribute("location") Location location)
+                                  @ModelAttribute("location") LocationDTO location)
     {
         locationService.create(location);
         return "redirect:/web/locations/list";

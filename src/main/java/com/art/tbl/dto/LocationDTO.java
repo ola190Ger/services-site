@@ -15,8 +15,18 @@ public class LocationDTO {
     private String city;
     private List<String> contractorId;
     private String description;
-    private LocalDateTime createdAt;
-    private LocalDateTime updatedAt;
+
+    public LocationDTO() {
+    }
+
+    public LocationDTO(String id, String country, String region, String city, List<String> contractorId, String description) {
+        this.id = id;
+        this.country = country;
+        this.region = region;
+        this.city = city;
+        this.contractorId = contractorId;
+        this.description = description;
+    }
 
     public String getId() {
         return id;
@@ -66,19 +76,4 @@ public class LocationDTO {
         this.description = description;
     }
 
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public LocalDateTime getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(LocalDateTime updatedAt) {
-        this.updatedAt = updatedAt;
-    }
 }

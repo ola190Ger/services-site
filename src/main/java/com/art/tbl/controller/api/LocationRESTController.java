@@ -6,6 +6,7 @@ package com.art.tbl.controller.api;
 @time 19:39 
 */
 
+import com.art.tbl.dto.LocationDTO;
 import com.art.tbl.model.Location;
 import com.art.tbl.service.location.impls.LocationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,27 +25,27 @@ public class LocationRESTController {
     LocationServiceImpl service;
 
     @RequestMapping("/getall")
-    public List<Location> getAll()
+    public List<LocationDTO> getAll()
     {
         return service.getall();
     }
 
     @RequestMapping("/get/{id}")
-    public Location get(@PathVariable("id") String id)
+    public LocationDTO get(@PathVariable("id") String id)
     {
         return service.get(id);
     }
 
     @RequestMapping("/create")
-    public Location create(@RequestBody Location location){
+    public LocationDTO create(@RequestBody LocationDTO location){
         return service.create(location);
     }
     @RequestMapping("/update")
-    public Location update(@RequestBody Location location){
+    public LocationDTO update(@RequestBody LocationDTO location){
         return service.update(location);
     }
     @RequestMapping("/delete/{id}")
-    public Location delete(@PathVariable("id") String id)
+    public LocationDTO delete(@PathVariable("id") String id)
     {
         return service.delete(id);
     }

@@ -6,14 +6,15 @@ package com.art.tbl.service.location.interfaces;
 @Time 20:57
 */
 
+import com.art.tbl.dto.LocationDTO;
 import com.art.tbl.model.Location;
 
 import java.util.List;
 
 public interface ILocationService {
-    Location create(Location location);
-    Location get(String id);
-    List<Location> getall();
-    Location update(Location location);
-    Location delete(String id);
+    LocationDTO create(LocationDTO location);
+    LocationDTO get(String id);
+    List<LocationDTO> getall();
+    LocationDTO update(LocationDTO location);
+    LocationDTO delete(String id);
 }

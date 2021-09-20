@@ -7,6 +7,7 @@ package com.art.tbl.fakedata;
 */
 
 import com.art.tbl.model.*;
+import com.sun.org.apache.xerces.internal.xs.StringList;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -165,9 +166,9 @@ public class Data {
 
     private List<Location> locations = new ArrayList<>(
             Arrays.asList(
-                    new Location("1", "country", "region", "city", new ArrayList<>(),"description", LocalDateTime.now(), LocalDateTime.now()),
-                    new Location("2", "country2", "region2", "city2", new ArrayList<>(),"description2", LocalDateTime.now(), LocalDateTime.now()),
-                    new Location("3", "country3", "region3", "city3", new ArrayList<>(), "description3", LocalDateTime.now(), LocalDateTime.now())
+                    new Location("1", "country", "region", "city", Arrays.asList("3", "2"), "description", LocalDateTime.now(), LocalDateTime.now()),
+                    new Location("2", "country2", "region2", "city2", new ArrayList<>(Arrays.asList("3", "2")),"description2", LocalDateTime.now(), LocalDateTime.now()),
+                    new Location("3", "country3", "region3", "city3", new ArrayList<>(Arrays.asList("4", "2")), "description3", LocalDateTime.now(), LocalDateTime.now())
             )
     );
 
